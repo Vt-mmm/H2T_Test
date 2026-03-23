@@ -76,6 +76,35 @@ Build first:
 npm run build
 ```
 
+## Submission Links
+- GitHub: `https://github.com/Vt-mmm/H2T_Test`
+- Demo: deployed on Vercel
+
+## Layout & Content Explanation
+- The Top 5 page is implemented as a landing/toplist format, not a long blog article.
+- Visual hierarchy is built with:
+1. Hero headline + subtitle
+2. VPN ranking cards with clear score and CTA
+3. Quick comparison table
+4. Methodology and buying notes
+- Each VPN card keeps content short and scannable:
+1. Rank + provider name
+2. Score
+3. 2-3 key highlights
+4. Primary CTA (`View Details`) and secondary CTA (`View Offer`)
+- The review page focuses on conversion + clarity:
+1. Overview and score
+2. Advantages vs limitations
+3. Basic information table
+4. CTA to external provider site
+5. FAQ and final verdict
+- The layout is responsive for desktop and mobile with adaptive grid/card behavior and section spacing.
+
+## References
+- Material UI documentation: `https://mui.com/`
+- React Router documentation: `https://reactrouter.com/`
+- Public VPN information pages were used only as general reference for mock content.
+
 ## Notes
 - No affiliate links or real discount logic are implemented.
 - Backend integration is intentionally out of scope for this test.
