@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { VPN_SECTION_ID } from '../routes/paths';
-import { MethodologySection, QuickCompareSection, TopListHero, VpnGridSection } from '../sections/toplist';
+import { MethodologySection, QuickCompareSection, TopListHero, TrustedBySection, VpnGridSection } from '../sections/toplist';
 import { scrollToSection } from '../utils';
 
 export function TopVpnPage() {
@@ -26,6 +26,7 @@ export function TopVpnPage() {
   return (
     <Box>
       <TopListHero />
+      <TrustedBySection />
       <VpnGridSection />
       <QuickCompareSection />
       <MethodologySection />
