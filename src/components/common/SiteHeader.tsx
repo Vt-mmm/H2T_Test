@@ -13,7 +13,7 @@ import {
   Typography,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { MouseEvent } from 'react';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { useLocales } from 'hooks';
@@ -28,6 +28,10 @@ export function SiteHeader() {
   const location = useLocation();
   const { translate } = useLocales();
   const [mobileMenuAnchor, setMobileMenuAnchor] = useState<null | HTMLElement>(null);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const lastScrollYRef = useRef(0);
+  const idleTimerRef = useRef<number | null>(null);
 
   const NAV_ITEMS = [
     { label: translate('header.vpnRankings'), sectionId: VPN_SECTION_ID.rankings },
@@ -57,6 +61,49 @@ export function SiteHeader() {
     navigateToSection(sectionId);
   };
 
+  useEffect(() => {
+    lastScrollYRef.current = window.scrollY;
+
+    const clearIdleTimer = () => {
+      if (idleTimerRef.current !== null) {
+        window.clearTimeout(idleTimerRef.current);
+        idleTimerRef.current = null;
+      }
+    };
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollYRef.current;
+
+      setHasScrolled(currentScrollY > 8);
+
+      if (currentScrollY <= 12) {
+        setIsHeaderVisible(true);
+      } else if (delta > 4) {
+        setIsHeaderVisible(false);
+      } else if (delta < -2) {
+        setIsHeaderVisible(true);
+      }
+
+      clearIdleTimer();
+      idleTimerRef.current = window.setTimeout(() => {
+        setIsHeaderVisible(true);
+      }, 140);
+
+      lastScrollYRef.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      clearIdleTimer();
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const isMenuOpen = Boolean(mobileMenuAnchor);
+  const shouldShowHeader = isHeaderVisible || isMenuOpen;
+
   return (
     <AppBar
       elevation={0}
@@ -64,6 +111,9 @@ export function SiteHeader() {
         bgcolor: 'rgba(255,255,255,0.8)',
         backdropFilter: 'blur(12px)',
         borderBottom: `1px solid ${vaultColors.surfaceHigh}`,
+        transform: shouldShowHeader ? 'translateY(0)' : 'translateY(-120%)',
+        transition: `transform 0.26s cubic-bezier(${MOTION_EASE_OUT.join(',')}), box-shadow 0.26s ease`,
+        boxShadow: hasScrolled ? '0 10px 24px -18px rgba(0, 25, 68, 0.55)' : 'none',
       }}
     >
       <Container maxWidth="lg">
