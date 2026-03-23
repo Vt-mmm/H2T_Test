@@ -1,10 +1,11 @@
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import { Box, Button, Card, CardContent, Chip, Link, List, ListItem, Stack, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
 import { useLocales } from 'hooks';
 import { vaultColors } from 'theme';
 import type { VpnProvider } from 'types/vpn';
-import { formatScore, toReviewPath } from 'utils/vpn';
+import { formatScore, MOTION_EASE_OUT, toReviewPath } from 'utils';
 
 interface VpnCardProps {
   vpn: VpnProvider;
@@ -12,6 +13,7 @@ interface VpnCardProps {
 
 export function VpnCard({ vpn }: VpnCardProps) {
   const { translate } = useLocales();
+  const brandLayoutId = `vpn-brand-${vpn.slug}`;
 
   return (
     <Card
@@ -126,13 +128,11 @@ export function VpnCard({ vpn }: VpnCardProps) {
             {vpn.rank}
           </Box>
 
-          <Stack
-            direction="row"
-            spacing={1}
-            alignItems="center"
-            sx={{
-              minWidth: 0,
-            }}
+          <Box
+            component={motion.div}
+            layoutId={brandLayoutId}
+            transition={{ layout: { duration: 0.36, ease: MOTION_EASE_OUT } }}
+            sx={{ display: 'flex', alignItems: 'center', gap: 1, minWidth: 0 }}
           >
             <Box
               component="img"
@@ -143,12 +143,12 @@ export function VpnCard({ vpn }: VpnCardProps) {
                 width: 30,
                 height: 30,
                 borderRadius: 1,
-                objectFit: 'cover',
+                objectFit: 'contain',
                 objectPosition: 'center',
                 bgcolor: '#fff',
                 border: '1px solid',
                 borderColor: 'divider',
-                p: 0,
+                p: 0.15,
                 flexShrink: 0,
               }}
             />
@@ -169,7 +169,7 @@ export function VpnCard({ vpn }: VpnCardProps) {
             >
               {vpn.name}
             </Typography>
-          </Stack>
+          </Box>
           <Typography
             variant="body2"
             color={vaultColors.accent}

@@ -1,11 +1,13 @@
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
 import { Box, Button, Chip, Link, Stack, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
 import { useLocales } from 'hooks';
 import { PATH_VPN_APP, VPN_SECTION_ID } from 'routes/paths';
 import type { VpnProvider } from 'types/vpn';
 import { vaultColors } from 'theme';
+import { fadeInUp, MOTION_EASE_OUT, staggerContainer, VIEWPORT_ONCE } from 'utils';
 
 interface ReviewHeroProps {
   vpn: VpnProvider;
@@ -13,14 +15,26 @@ interface ReviewHeroProps {
 
 export function ReviewHero({ vpn }: ReviewHeroProps) {
   const { translate } = useLocales();
+  const brandLayoutId = `vpn-brand-${vpn.slug}`;
 
   return (
-    <Box mb={{ xs: 5, md: 7 }}>
-      <Button component={RouterLink} to={PATH_VPN_APP.root} size="small" startIcon={<ArrowBackRoundedIcon />} sx={{ mb: 2 }}>
-        {translate('review.backToTop5')}
-      </Button>
+    <Box
+      component={motion.section}
+      variants={staggerContainer(0.08)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={VIEWPORT_ONCE}
+      mb={{ xs: 5, md: 7 }}
+    >
+      <Box component={motion.div} variants={fadeInUp(14)}>
+        <Button component={RouterLink} to={PATH_VPN_APP.root} size="small" startIcon={<ArrowBackRoundedIcon />} sx={{ mb: 2 }}>
+          {translate('review.backToTop5')}
+        </Button>
+      </Box>
 
       <Stack
+        component={motion.div}
+        variants={fadeInUp(22, 0.04)}
         direction={{ xs: 'column', md: 'row' }}
         justifyContent="space-between"
         alignItems={{ xs: 'flex-start', md: 'center' }}
@@ -39,7 +53,15 @@ export function ReviewHero({ vpn }: ReviewHeroProps) {
               fontSize: 11,
             }}
           />
-          <Stack direction="row" spacing={1.4} alignItems="center" mb={1.2}>
+          <Stack
+            component={motion.div}
+            layoutId={brandLayoutId}
+            transition={{ layout: { duration: 0.36, ease: MOTION_EASE_OUT } }}
+            direction="row"
+            spacing={1.4}
+            alignItems="center"
+            mb={1.2}
+          >
             <Box
               component="img"
               src={vpn.logoSrc}
@@ -49,12 +71,12 @@ export function ReviewHero({ vpn }: ReviewHeroProps) {
                 width: { xs: 34, sm: 40 },
                 height: { xs: 34, sm: 40 },
                 borderRadius: 1.2,
-                objectFit: 'cover',
+                objectFit: 'contain',
                 objectPosition: 'center',
                 bgcolor: '#fff',
                 border: '1px solid',
                 borderColor: 'divider',
-                p: 0,
+                p: 0.2,
                 flexShrink: 0,
               }}
             />

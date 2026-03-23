@@ -1,5 +1,6 @@
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { LayoutGroup, MotionConfig } from 'framer-motion';
 import { useMemo } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { useLocales } from './hooks';
@@ -17,10 +18,14 @@ function App() {
   return (
     <ThemeProvider theme={localizedTheme}>
       <CssBaseline />
-      <BrowserRouter>
-        <ScrollToTop />
-        <AppRouter />
-      </BrowserRouter>
+      <MotionConfig reducedMotion="user">
+        <BrowserRouter>
+          <LayoutGroup id="vpn-pages">
+            <ScrollToTop />
+            <AppRouter />
+          </LayoutGroup>
+        </BrowserRouter>
+      </MotionConfig>
     </ThemeProvider>
   );
 }

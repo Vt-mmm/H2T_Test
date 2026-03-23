@@ -12,13 +12,14 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import type { MouseEvent } from 'react';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { useLocales } from 'hooks';
 import { PATH_VPN_APP, VPN_SECTION_ID } from 'routes/paths';
 import { vaultColors } from 'theme';
-import { scrollToSection } from 'utils';
+import { MOTION_EASE_OUT, scrollToSection } from 'utils';
 import h2tLogo from 'assets/H2TLogo.jpg';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
@@ -130,7 +131,16 @@ export function SiteHeader() {
             <Button onClick={() => navigateToSection(VPN_SECTION_ID.rankings)} variant="contained" size="small" sx={{ px: 1.5, minWidth: 0 }}>
               {translate('header.start')}
             </Button>
-            <IconButton aria-label={translate('header.openNavigation')} color="primary" size="small" onClick={openMobileMenu}>
+            <IconButton
+              aria-label={translate('header.openNavigation')}
+              color="primary"
+              size="small"
+              onClick={openMobileMenu}
+              sx={{
+                transform: mobileMenuAnchor ? 'rotate(90deg)' : 'rotate(0deg)',
+                transition: `transform 0.24s cubic-bezier(${MOTION_EASE_OUT.join(',')})`,
+              }}
+            >
               <MenuRoundedIcon />
             </IconButton>
           </Stack>
@@ -143,6 +153,7 @@ export function SiteHeader() {
         onClose={closeMobileMenu}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+        transitionDuration={{ enter: 220, exit: 160 }}
         slotProps={{
           paper: {
             sx: {
@@ -151,13 +162,25 @@ export function SiteHeader() {
               borderRadius: 2,
               border: `1px solid ${vaultColors.surfaceHigh}`,
               boxShadow: '0 12px 28px rgba(0, 25, 68, 0.18)',
+              overflow: 'hidden',
             },
           },
         }}
       >
-        {NAV_ITEMS.map((item) => (
+        {NAV_ITEMS.map((item, index) => (
           <MenuItem key={item.sectionId} onClick={() => handleMobileMenuNavigate(item.sectionId)} sx={{ py: 1.1 }}>
-            {item.label}
+            <Box
+              component={motion.span}
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                duration: 0.2,
+                delay: index * 0.04,
+                ease: MOTION_EASE_OUT,
+              }}
+            >
+              {item.label}
+            </Box>
           </MenuItem>
         ))}
       </Menu>
