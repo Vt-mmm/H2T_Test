@@ -41,6 +41,7 @@
   },
   "vpnCard": {
     "editorsChoice": "Editor's Choice",
+    "bestForTopPick": "Best for: Speed & Privacy",
     "score": "Score: {{score}}",
     "viewDetails": "View Details"
   },
@@ -49,6 +50,10 @@
     "detailedReview": "Detailed Review",
     "reviewTitle": "{{name}} Review",
     "editorScore": "Editor Score: {{score}}/5",
+    "communityScore": "Community Score: {{score}}/5 ({{count}} comments)",
+    "communityRatingTitle": "Community Ratings & Comments",
+    "basedOnComments": "Based on {{count}} user comments",
+    "recentComments": "Recent Comments",
     "visitWebsite": "Visit Website",
     "compareOthers": "Compare Others",
     "advantages": "Advantages",

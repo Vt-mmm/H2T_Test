@@ -39,14 +39,34 @@ export function ReviewHero({ vpn }: ReviewHeroProps) {
               fontSize: 11,
             }}
           />
-          <Typography variant="h2" fontSize={{ xs: 30, sm: 40, md: 52 }} color="primary.main" mb={1.2}>
-            {translate('review.reviewTitle', { name: vpn.name })}
-          </Typography>
+          <Stack direction="row" spacing={1.4} alignItems="center" mb={1.2}>
+            <Box
+              component="img"
+              src={vpn.logoSrc}
+              alt={vpn.logoAlt}
+              loading="lazy"
+              sx={{
+                width: { xs: 34, sm: 40 },
+                height: { xs: 34, sm: 40 },
+                borderRadius: 1.2,
+                objectFit: 'cover',
+                objectPosition: 'center',
+                bgcolor: '#fff',
+                border: '1px solid',
+                borderColor: 'divider',
+                p: 0,
+                flexShrink: 0,
+              }}
+            />
+            <Typography variant="h2" fontSize={{ xs: 30, sm: 40, md: 52 }} color="primary.main">
+              {translate('review.reviewTitle', { name: vpn.name })}
+            </Typography>
+          </Stack>
           <Typography color="text.secondary" mb={1.4} fontSize={{ xs: 15, sm: 16 }}>
             {vpn.summary}
           </Typography>
           <Typography fontWeight={700} color={vaultColors.accent}>
-            {translate('review.editorScore', { score: vpn.score.toFixed(1) })}
+            {translate('review.communityScore', { score: vpn.score.toFixed(1), count: vpn.reviewCount })}
           </Typography>
         </Box>
 

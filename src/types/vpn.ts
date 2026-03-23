@@ -13,11 +13,22 @@ export interface FaqItem {
   answer: string;
 }
 
+export interface VpnUserComment {
+  id: string;
+  author: string;
+  rating: number;
+  content: string;
+  dateLabel: string;
+}
+
 export interface VpnProvider {
   rank: number;
   slug: string;
   name: string;
+  logoSrc: string;
+  logoAlt: string;
   score: number;
+  reviewCount: number;
   topPick?: boolean;
   summary: string;
   highlights: VpnHighlight[];
@@ -27,4 +38,5 @@ export interface VpnProvider {
   cons: string[];
   specs: VpnSpec[];
   faqs: FaqItem[];
+  comments: VpnUserComment[];
 }

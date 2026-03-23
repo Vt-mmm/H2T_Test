@@ -41,6 +41,7 @@
   },
   "vpnCard": {
     "editorsChoice": "Lựa chọn biên tập",
+    "bestForTopPick": "Phù hợp nhất: Tốc độ & riêng tư",
     "score": "Điểm: {{score}}",
     "viewDetails": "Xem chi tiết"
   },
@@ -49,6 +50,10 @@
     "detailedReview": "Đánh giá chi tiết",
     "reviewTitle": "Đánh Giá {{name}}",
     "editorScore": "Điểm biên tập: {{score}}/5",
+    "communityScore": "Điểm cộng đồng: {{score}}/5 ({{count}} bình luận)",
+    "communityRatingTitle": "Đánh Giá & Bình Luận Cộng Đồng",
+    "basedOnComments": "Dựa trên {{count}} bình luận người dùng",
+    "recentComments": "Bình luận gần đây",
     "visitWebsite": "Truy cập website",
     "compareOthers": "So sánh VPN khác",
     "advantages": "Ưu điểm",

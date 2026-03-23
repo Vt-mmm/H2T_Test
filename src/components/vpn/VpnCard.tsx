@@ -56,21 +56,58 @@ export function VpnCard({ vpn }: VpnCardProps) {
           }}
         />
       )}
-
       <CardContent
         sx={{
           p: 'clamp(18px, 2.4vw, 26px)',
+          position: 'relative',
+          zIndex: 1,
           display: 'flex',
           flexDirection: 'column',
           gap: 2.2,
           flexGrow: 1,
         }}
       >
-        <Stack
-          direction={{ xs: 'column', xl: 'row' }}
-          justifyContent="space-between"
-          alignItems={{ xs: 'flex-start', xl: 'flex-start' }}
-          gap={1.4}
+        {vpn.topPick && (
+          <>
+            <Chip
+              label={translate('vpnCard.bestForTopPick')}
+              size="small"
+              sx={{
+                display: { xs: 'inline-flex', sm: 'none' },
+                alignSelf: 'flex-end',
+                bgcolor: 'rgba(251, 107, 0, 0.12)',
+                color: 'primary.main',
+                fontWeight: 800,
+                borderRadius: 999,
+                letterSpacing: '0.01em',
+                maxWidth: '100%',
+              }}
+            />
+            <Chip
+              label={translate('vpnCard.bestForTopPick')}
+              size="small"
+              sx={{
+                display: { xs: 'none', sm: 'inline-flex' },
+                position: 'absolute',
+                top: 18,
+                right: 22,
+                bgcolor: 'rgba(251, 107, 0, 0.12)',
+                color: 'primary.main',
+                fontWeight: 800,
+                borderRadius: 999,
+                letterSpacing: '0.01em',
+              }}
+            />
+          </>
+        )}
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: '44px minmax(0, 1fr)', sm: '52px minmax(0, 1fr)' },
+            columnGap: { xs: 1.2, sm: 1.6 },
+            rowGap: 0.55,
+            alignItems: 'center',
+          }}
         >
           <Box
             sx={{
@@ -89,37 +126,59 @@ export function VpnCard({ vpn }: VpnCardProps) {
             {vpn.rank}
           </Box>
 
-          <Box
-            textAlign={{ xs: 'left', xl: 'right' }}
-            width={{ xs: '100%', xl: 'auto' }}
+          <Stack
+            direction="row"
+            spacing={1}
+            alignItems="center"
             sx={{
-              minHeight: { xs: 'auto', xl: 94 },
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: { xs: 'flex-start', xl: 'space-between' },
-              gap: { xs: 0.6, xl: 0 },
+              minWidth: 0,
             }}
           >
+            <Box
+              component="img"
+              src={vpn.logoSrc}
+              alt={vpn.logoAlt}
+              loading="lazy"
+              sx={{
+                width: 30,
+                height: 30,
+                borderRadius: 1,
+                objectFit: 'cover',
+                objectPosition: 'center',
+                bgcolor: '#fff',
+                border: '1px solid',
+                borderColor: 'divider',
+                p: 0,
+                flexShrink: 0,
+              }}
+            />
             <Typography
               variant="h5"
               fontSize="clamp(1.35rem, 2.35vw, 1.5rem)"
               color="primary.main"
               lineHeight={1.2}
               sx={{
-                minHeight: { xs: 'auto', xl: '2.4em' },
+                textAlign: 'left',
+                minWidth: 0,
                 display: '-webkit-box',
                 overflow: 'hidden',
                 WebkitLineClamp: 2,
                 WebkitBoxOrient: 'vertical',
+                wordBreak: 'break-word',
               }}
             >
               {vpn.name}
             </Typography>
-            <Typography variant="body2" color={vaultColors.accent} fontWeight={700} mt={0.5}>
-              {translate('vpnCard.score', { score: formatScore(vpn.score) })}
-            </Typography>
-          </Box>
-        </Stack>
+          </Stack>
+          <Typography
+            variant="body2"
+            color={vaultColors.accent}
+            fontWeight={700}
+            sx={{ gridColumn: '2 / 3', justifySelf: 'end', textAlign: 'right' }}
+          >
+            {translate('vpnCard.score', { score: formatScore(vpn.score) })}
+          </Typography>
+        </Box>
 
         <Typography color="text.secondary" fontSize="clamp(0.95rem, 1.35vw, 1rem)">
           <Box

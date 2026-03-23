@@ -1,4 +1,9 @@
-import type { VpnProvider } from 'types/vpn';
+import type { VpnProvider, VpnUserComment } from 'types/vpn';
+import cyberghostLogo from 'assets/vpn-logos/cyberghost.png';
+import expressvpnLogo from 'assets/vpn-logos/expressvpn.png';
+import nordvpnLogo from 'assets/vpn-logos/nordvpn.png';
+import piaLogo from 'assets/vpn-logos/private-internet-access.svg';
+import surfsharkLogo from 'assets/vpn-logos/surfshark.png';
 
 export type TranslateFn = (key: string, options?: Record<string, unknown>) => string;
 
@@ -18,11 +23,19 @@ interface VpnFaqDefinition {
   answerKey: string;
 }
 
+interface VpnCommentDefinition {
+  author: string;
+  rating: number;
+  content: string;
+  dateLabel: string;
+}
+
 interface VpnProviderDefinition {
   rank: number;
   slug: string;
   name: string;
-  score: number;
+  logoSrc: string;
+  logoAlt: string;
   topPick?: boolean;
   summaryKey: string;
   highlights: VpnHighlightDefinition[];
@@ -32,6 +45,51 @@ interface VpnProviderDefinition {
   consKeys: string[];
   specs: VpnSpecDefinition[];
   faqs: VpnFaqDefinition[];
+  comments: VpnCommentDefinition[];
+}
+
+const MOCK_REVIEW_AUTHORS = [
+  'Ava Carter',
+  'Noah Kim',
+  'Emma Walker',
+  'Liam Chen',
+  'Mia Patel',
+  'Ethan Brooks',
+  'Sophia Reed',
+  'Lucas Hill',
+  'Olivia Stone',
+  'James Ford',
+] as const;
+
+const MOCK_REVIEW_DATES = [
+  'Mar 02, 2026',
+  'Mar 01, 2026',
+  'Feb 28, 2026',
+  'Feb 25, 2026',
+  'Feb 20, 2026',
+  'Feb 14, 2026',
+  'Feb 08, 2026',
+  'Feb 03, 2026',
+  'Jan 27, 2026',
+  'Jan 18, 2026',
+] as const;
+
+function createMockComments(ratings: number[], comments: string[]): VpnCommentDefinition[] {
+  return ratings.map((rating, index) => ({
+    author: MOCK_REVIEW_AUTHORS[index % MOCK_REVIEW_AUTHORS.length],
+    rating,
+    content: comments[index % comments.length],
+    dateLabel: MOCK_REVIEW_DATES[index % MOCK_REVIEW_DATES.length],
+  }));
+}
+
+function calculateScoreFromComments(comments: VpnCommentDefinition[]): number {
+  if (!comments.length) {
+    return 0;
+  }
+
+  const totalScore = comments.reduce((sum, item) => sum + item.rating, 0);
+  return Number((totalScore / comments.length).toFixed(1));
 }
 
 const VPN_PROVIDER_DEFINITIONS: VpnProviderDefinition[] = [
@@ -39,8 +97,18 @@ const VPN_PROVIDER_DEFINITIONS: VpnProviderDefinition[] = [
     rank: 1,
     slug: 'nordvpn',
     name: 'NordVPN',
-    score: 4.9,
+    logoSrc: nordvpnLogo,
+    logoAlt: 'NordVPN logo',
     topPick: true,
+    comments: createMockComments(
+      [5, 5, 5, 5, 5, 5, 5, 5, 5, 4],
+      [
+        'Fast enough for 4K streams and large file downloads.',
+        'Apps are clean and stable on both laptop and phone.',
+        'Connection stays reliable even when I switch regions.',
+        'Privacy controls are clear and easy to trust.',
+      ],
+    ),
     summaryKey: 'vpnData.nordvpn.summary',
     highlights: [
       { icon: 'SP', labelKey: 'vpnData.nordvpn.highlights.speed' },
@@ -94,7 +162,17 @@ const VPN_PROVIDER_DEFINITIONS: VpnProviderDefinition[] = [
     rank: 2,
     slug: 'expressvpn',
     name: 'ExpressVPN',
-    score: 4.8,
+    logoSrc: expressvpnLogo,
+    logoAlt: 'ExpressVPN logo',
+    comments: createMockComments(
+      [5, 5, 5, 5, 5, 5, 5, 5, 4, 4],
+      [
+        'Great speed consistency while traveling across regions.',
+        'Setup was very quick and customer support was responsive.',
+        'Streaming performance is strong with minimal buffering.',
+        'Price is higher, but quality feels premium.',
+      ],
+    ),
     summaryKey: 'vpnData.expressvpn.summary',
     highlights: [
       { icon: '105', labelKey: 'vpnData.expressvpn.highlights.servers' },
@@ -148,7 +226,17 @@ const VPN_PROVIDER_DEFINITIONS: VpnProviderDefinition[] = [
     rank: 3,
     slug: 'surfshark',
     name: 'Surfshark',
-    score: 4.7,
+    logoSrc: surfsharkLogo,
+    logoAlt: 'Surfshark logo',
+    comments: createMockComments(
+      [5, 5, 5, 5, 5, 5, 5, 4, 4, 4],
+      [
+        'Excellent value for families with many devices.',
+        'Unlimited connections is the biggest advantage for me.',
+        'Speed is generally good, with occasional region variance.',
+        'Feature set is strong for the price tier.',
+      ],
+    ),
     summaryKey: 'vpnData.surfshark.summary',
     highlights: [
       { icon: 'UD', labelKey: 'vpnData.surfshark.highlights.unlimitedDevices' },
@@ -199,7 +287,17 @@ const VPN_PROVIDER_DEFINITIONS: VpnProviderDefinition[] = [
     rank: 4,
     slug: 'cyberghost',
     name: 'CyberGhost',
-    score: 4.5,
+    logoSrc: cyberghostLogo,
+    logoAlt: 'CyberGhost logo',
+    comments: createMockComments(
+      [5, 5, 5, 5, 5, 4, 4, 4, 4, 4],
+      [
+        'Good option for beginners with straightforward setup.',
+        'Streaming profiles are useful when choosing servers quickly.',
+        'Server list is broad and easy to browse.',
+        'Performance can fluctuate during peak hours.',
+      ],
+    ),
     summaryKey: 'vpnData.cyberghost.summary',
     highlights: [
       { icon: 'SO', labelKey: 'vpnData.cyberghost.highlights.streamingProfiles' },
@@ -249,7 +347,17 @@ const VPN_PROVIDER_DEFINITIONS: VpnProviderDefinition[] = [
     rank: 5,
     slug: 'private-internet-access',
     name: 'Private Internet Access',
-    score: 4.4,
+    logoSrc: piaLogo,
+    logoAlt: 'Private Internet Access logo',
+    comments: createMockComments(
+      [5, 5, 5, 5, 4, 4, 4, 4, 4, 4],
+      [
+        'Powerful settings for users who want detailed control.',
+        'Open-source approach adds confidence for privacy users.',
+        'Long-term plans provide good value overall.',
+        'Interface can feel technical for beginners.',
+      ],
+    ),
     summaryKey: 'vpnData.pia.summary',
     highlights: [
       { icon: 'OS', labelKey: 'vpnData.pia.highlights.openSource' },
@@ -299,30 +407,44 @@ const VPN_PROVIDER_DEFINITIONS: VpnProviderDefinition[] = [
 ];
 
 export function getVpnProviders(translate: TranslateFn): VpnProvider[] {
-  return VPN_PROVIDER_DEFINITIONS.map((provider) => ({
-    rank: provider.rank,
-    slug: provider.slug,
-    name: provider.name,
-    score: provider.score,
-    topPick: provider.topPick,
-    summary: translate(provider.summaryKey),
-    highlights: provider.highlights.map((highlight) => ({
-      icon: highlight.icon,
-      label: translate(highlight.labelKey),
-    })),
-    ctaLabel: translate(provider.ctaLabelKey),
-    ctaUrl: provider.ctaUrl,
-    pros: provider.prosKeys.map((key) => translate(key)),
-    cons: provider.consKeys.map((key) => translate(key)),
-    specs: provider.specs.map((spec) => ({
-      label: translate(spec.labelKey),
-      value: spec.valueKey ? translate(spec.valueKey) : spec.value,
-    })),
-    faqs: provider.faqs.map((faq) => ({
-      question: translate(faq.questionKey),
-      answer: translate(faq.answerKey),
-    })),
-  }));
+  return VPN_PROVIDER_DEFINITIONS.map((provider) => {
+    const comments: VpnUserComment[] = provider.comments.map((comment, index) => ({
+      id: `${provider.slug}-comment-${index + 1}`,
+      author: comment.author,
+      rating: comment.rating,
+      content: comment.content,
+      dateLabel: comment.dateLabel,
+    }));
+
+    return {
+      rank: provider.rank,
+      slug: provider.slug,
+      name: provider.name,
+      logoSrc: provider.logoSrc,
+      logoAlt: provider.logoAlt,
+      score: calculateScoreFromComments(provider.comments),
+      reviewCount: comments.length,
+      topPick: provider.topPick,
+      summary: translate(provider.summaryKey),
+      highlights: provider.highlights.map((highlight) => ({
+        icon: highlight.icon,
+        label: translate(highlight.labelKey),
+      })),
+      ctaLabel: translate(provider.ctaLabelKey),
+      ctaUrl: provider.ctaUrl,
+      pros: provider.prosKeys.map((key) => translate(key)),
+      cons: provider.consKeys.map((key) => translate(key)),
+      specs: provider.specs.map((spec) => ({
+        label: translate(spec.labelKey),
+        value: spec.valueKey ? translate(spec.valueKey) : spec.value,
+      })),
+      faqs: provider.faqs.map((faq) => ({
+        question: translate(faq.questionKey),
+        answer: translate(faq.answerKey),
+      })),
+      comments,
+    };
+  });
 }
 
 export function getVpnProviderBySlug(slug: string, translate: TranslateFn) {

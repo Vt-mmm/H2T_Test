@@ -6,10 +6,14 @@ import {
   Container,
   IconButton,
   Link,
+  Menu,
+  MenuItem,
   Stack,
   Toolbar,
   Typography,
 } from '@mui/material';
+import { useState } from 'react';
+import type { MouseEvent } from 'react';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { useLocales } from 'hooks';
 import { PATH_VPN_APP, VPN_SECTION_ID } from 'routes/paths';
@@ -22,6 +26,7 @@ export function SiteHeader() {
   const navigate = useNavigate();
   const location = useLocation();
   const { translate } = useLocales();
+  const [mobileMenuAnchor, setMobileMenuAnchor] = useState<null | HTMLElement>(null);
 
   const NAV_ITEMS = [
     { label: translate('header.vpnRankings'), sectionId: VPN_SECTION_ID.rankings },
@@ -36,6 +41,19 @@ export function SiteHeader() {
     }
 
     scrollToSection(sectionId);
+  };
+
+  const openMobileMenu = (event: MouseEvent<HTMLButtonElement>) => {
+    setMobileMenuAnchor(event.currentTarget);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuAnchor(null);
+  };
+
+  const handleMobileMenuNavigate = (sectionId: string) => {
+    closeMobileMenu();
+    navigateToSection(sectionId);
   };
 
   return (
@@ -112,12 +130,37 @@ export function SiteHeader() {
             <Button onClick={() => navigateToSection(VPN_SECTION_ID.rankings)} variant="contained" size="small" sx={{ px: 1.5, minWidth: 0 }}>
               {translate('header.start')}
             </Button>
-            <IconButton aria-label={translate('header.openNavigation')} color="primary" size="small">
+            <IconButton aria-label={translate('header.openNavigation')} color="primary" size="small" onClick={openMobileMenu}>
               <MenuRoundedIcon />
             </IconButton>
           </Stack>
         </Toolbar>
       </Container>
+
+      <Menu
+        anchorEl={mobileMenuAnchor}
+        open={Boolean(mobileMenuAnchor)}
+        onClose={closeMobileMenu}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+        slotProps={{
+          paper: {
+            sx: {
+              mt: 1,
+              minWidth: 220,
+              borderRadius: 2,
+              border: `1px solid ${vaultColors.surfaceHigh}`,
+              boxShadow: '0 12px 28px rgba(0, 25, 68, 0.18)',
+            },
+          },
+        }}
+      >
+        {NAV_ITEMS.map((item) => (
+          <MenuItem key={item.sectionId} onClick={() => handleMobileMenuNavigate(item.sectionId)} sx={{ py: 1.1 }}>
+            {item.label}
+          </MenuItem>
+        ))}
+      </Menu>
     </AppBar>
   );
 }

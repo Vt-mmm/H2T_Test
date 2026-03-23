@@ -1,17 +1,5 @@
 import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
-import {
-  Box,
-  Button,
-  Link,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography,
-} from '@mui/material';
+import { Box, Button, Link, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { getVpnProviders } from 'data/vpns';
 import { useLocales } from 'hooks';
 
@@ -48,7 +36,29 @@ export function QuickCompareSection() {
           <TableBody>
             {vpnProviders.map((vpn) => (
               <TableRow key={vpn.slug} hover>
-                <TableCell sx={{ fontWeight: 700, color: 'primary.main' }}>{vpn.name}</TableCell>
+                <TableCell sx={{ fontWeight: 700, color: 'primary.main' }}>
+                  <Stack direction="row" spacing={1} alignItems="center">
+                    <Box
+                      component="img"
+                      src={vpn.logoSrc}
+                      alt={vpn.logoAlt}
+                      loading="lazy"
+                      sx={{
+                        width: 22,
+                        height: 22,
+                        borderRadius: 0.8,
+                        objectFit: 'cover',
+                        objectPosition: 'center',
+                        bgcolor: '#fff',
+                        border: '1px solid',
+                        borderColor: 'divider',
+                        p: 0,
+                        flexShrink: 0,
+                      }}
+                    />
+                    <Box component="span">{vpn.name}</Box>
+                  </Stack>
+                </TableCell>
                 <TableCell>{vpn.score.toFixed(1)}/5</TableCell>
                 <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{vpn.highlights[0]?.label}</TableCell>
                 <TableCell align="right">

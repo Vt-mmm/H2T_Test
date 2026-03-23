@@ -7,7 +7,6 @@ export default defineConfig({
   resolve: {
     alias: {
       assets: fileURLToPath(new URL('./src/assets', import.meta.url)),
-      axiosClient: fileURLToPath(new URL('./src/axiosClient', import.meta.url)),
       common: fileURLToPath(new URL('./src/common', import.meta.url)),
       components: fileURLToPath(new URL('./src/components', import.meta.url)),
       constants: fileURLToPath(new URL('./src/constants', import.meta.url)),
