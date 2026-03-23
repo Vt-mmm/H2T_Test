@@ -4,16 +4,18 @@ import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import WorkspacePremiumRoundedIcon from '@mui/icons-material/WorkspacePremiumRounded';
 import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
 import { useState } from 'react';
-
-const ITEMS = [
-  { label: 'Best VPNs', icon: <WorkspacePremiumRoundedIcon /> },
-  { label: 'Speeds', icon: <AutoGraphRoundedIcon /> },
-  { label: 'Guides', icon: <MenuBookRoundedIcon /> },
-  { label: 'Labs', icon: <PersonOutlineRoundedIcon /> },
-];
+import { useLocales } from '../../hooks';
 
 export function MobileBottomNav() {
   const [value, setValue] = useState(0);
+  const { translate } = useLocales();
+
+  const ITEMS = [
+    { label: translate('mobileNav.bestVpns'), icon: <WorkspacePremiumRoundedIcon /> },
+    { label: translate('mobileNav.speeds'), icon: <AutoGraphRoundedIcon /> },
+    { label: translate('mobileNav.guides'), icon: <MenuBookRoundedIcon /> },
+    { label: translate('mobileNav.labs'), icon: <PersonOutlineRoundedIcon /> },
+  ];
 
   return (
     <Paper

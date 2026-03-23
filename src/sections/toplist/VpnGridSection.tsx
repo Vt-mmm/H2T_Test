@@ -1,9 +1,13 @@
 import { Box } from '@mui/material';
 import { VpnCard } from '../../components/vpn';
-import { VPN_PROVIDERS } from '../../data/vpns';
+import { getVpnProviders } from '../../data/vpns';
+import { useLocales } from '../../hooks';
 import { VPN_SECTION_ID } from '../../routes/paths';
 
 export function VpnGridSection() {
+  const { translate } = useLocales();
+  const vpnProviders = getVpnProviders(translate);
+
   return (
     <Box
       id={VPN_SECTION_ID.rankings}
@@ -14,7 +18,7 @@ export function VpnGridSection() {
         alignItems: 'stretch',
       }}
     >
-      {VPN_PROVIDERS.map((vpn) => (
+      {vpnProviders.map((vpn) => (
         <Box
           key={vpn.slug}
           sx={{

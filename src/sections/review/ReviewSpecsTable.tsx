@@ -1,4 +1,5 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@mui/material';
+import { useLocales } from '../../hooks';
 import type { VpnProvider } from '../../types/vpn';
 
 interface ReviewSpecsTableProps {
@@ -6,6 +7,8 @@ interface ReviewSpecsTableProps {
 }
 
 export function ReviewSpecsTable({ vpn }: ReviewSpecsTableProps) {
+  const { translate } = useLocales();
+
   return (
     <TableContainer
       component={Paper}
@@ -20,7 +23,7 @@ export function ReviewSpecsTable({ vpn }: ReviewSpecsTableProps) {
       }}
     >
       <Typography variant="h4" fontSize={{ xs: 21, sm: 24 }} color="primary.main" sx={{ p: { xs: 2.2, sm: 3 }, pb: 1 }}>
-        Basic Information
+        {translate('review.basicInformation')}
       </Typography>
       <Table aria-label="VPN basic information">
         <TableBody>

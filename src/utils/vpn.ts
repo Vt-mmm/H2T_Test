@@ -1,9 +1,10 @@
-import { VPN_PROVIDERS } from '../data/vpns';
+import type { TranslateFn } from '../data/vpns';
+import { getVpnProviderBySlug } from '../data/vpns';
 import { PATH_VPN_APP } from '../routes/paths';
 import { path } from './path';
 
-export function getVpnBySlug(slug: string) {
-  return VPN_PROVIDERS.find((vpn) => vpn.slug === slug);
+export function getVpnBySlug(slug: string, translate: TranslateFn) {
+  return getVpnProviderBySlug(slug, translate);
 }
 
 export function formatScore(score: number) {

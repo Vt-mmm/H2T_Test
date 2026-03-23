@@ -1,5 +1,6 @@
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from '@mui/material';
+import { useLocales } from '../../hooks';
 import { VPN_SECTION_ID } from '../../routes/paths';
 import type { VpnProvider } from '../../types/vpn';
 
@@ -8,10 +9,12 @@ interface ReviewFaqProps {
 }
 
 export function ReviewFaq({ vpn }: ReviewFaqProps) {
+  const { translate } = useLocales();
+
   return (
     <Box id={VPN_SECTION_ID.faq} mb={2}>
       <Typography variant="h4" fontSize={24} color="primary.main" mb={1.2}>
-        FAQ
+        {translate('review.faqTitle')}
       </Typography>
 
       {vpn.faqs.map((faq) => (

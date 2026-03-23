@@ -1,11 +1,25 @@
 import { Box, Container, Grid, Link, Stack, Typography } from '@mui/material';
+import { useLocales } from '../../hooks';
 import { vaultColors } from '../../theme';
 import h2tLogo from '../../assets/H2TLogo.jpg';
 
-const RESOURCE_LINKS = ['VPN for Gaming', 'Privacy Laws 2026', 'Encryption Guides', 'Routers for VPN'];
-const COMPANY_LINKS = ['About Our Lab', 'Affiliate Disclosure', 'Privacy Policy', 'Contact'];
-
 export function SiteFooter() {
+  const { translate } = useLocales();
+
+  const RESOURCE_LINKS = [
+    translate('footer.resourceGaming'),
+    translate('footer.resourceLaws'),
+    translate('footer.resourceEncryption'),
+    translate('footer.resourceRouters'),
+  ];
+
+  const COMPANY_LINKS = [
+    translate('footer.companyAbout'),
+    translate('footer.companyAffiliate'),
+    translate('footer.companyPolicy'),
+    translate('footer.companyContact'),
+  ];
+
   return (
     <Box component="footer" sx={{ bgcolor: 'background.paper', py: { xs: 6, md: 9 }, mt: { xs: 8, md: 10 } }}>
       <Container maxWidth="lg">
@@ -19,18 +33,17 @@ export function SiteFooter() {
                 sx={{ width: 24, height: 24, borderRadius: 1, objectFit: 'cover', flexShrink: 0 }}
               />
               <Typography fontFamily="Manrope, Inter, sans-serif" fontWeight={800} color="primary.main">
-                The Digital Vault
+                {translate('header.brandName')}
               </Typography>
             </Stack>
             <Typography color="text.secondary" mt={2.5} maxWidth={460}>
-              Your trusted guide to digital privacy. We provide transparent, data-driven reviews to help international
-              users compare VPN services quickly.
+              {translate('footer.description')}
             </Typography>
           </Grid>
 
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Typography variant="overline" color="primary.main" fontWeight={700} letterSpacing="0.08em">
-              Resources
+              {translate('footer.resourcesTitle')}
             </Typography>
             <Stack spacing={1.2} mt={1.4}>
               {RESOURCE_LINKS.map((item) => (
@@ -48,7 +61,7 @@ export function SiteFooter() {
 
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Typography variant="overline" color="primary.main" fontWeight={700} letterSpacing="0.08em">
-              Company
+              {translate('footer.companyTitle')}
             </Typography>
             <Stack spacing={1.2} mt={1.4}>
               {COMPANY_LINKS.map((item) => (
@@ -75,10 +88,10 @@ export function SiteFooter() {
           borderTop={`1px solid ${vaultColors.surfaceHigh}`}
         >
           <Typography variant="caption" color="text.secondary" fontWeight={500}>
-            © 2026 The Digital Vault. All rights reserved.
+            {translate('footer.copyright', { year: 2026 })}
           </Typography>
           <Typography variant="caption" color="text.secondary" fontWeight={500}>
-            Rankings are periodically updated using internal performance checks.
+            {translate('footer.rankingsUpdated')}
           </Typography>
         </Stack>
       </Container>

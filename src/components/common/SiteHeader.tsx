@@ -11,20 +11,23 @@ import {
   Typography,
 } from '@mui/material';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
+import { useLocales } from '../../hooks';
 import { PATH_VPN_APP, VPN_SECTION_ID } from '../../routes/paths';
 import { vaultColors } from '../../theme';
 import { scrollToSection } from '../../utils';
 import h2tLogo from '../../assets/H2TLogo.jpg';
-
-const NAV_ITEMS = [
-  { label: 'VPN Rankings', sectionId: VPN_SECTION_ID.rankings },
-  { label: 'Speed Tests', sectionId: VPN_SECTION_ID.methodology },
-  { label: 'Security Guides', sectionId: VPN_SECTION_ID.faq },
-];
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 export function SiteHeader() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { translate } = useLocales();
+
+  const NAV_ITEMS = [
+    { label: translate('header.vpnRankings'), sectionId: VPN_SECTION_ID.rankings },
+    { label: translate('header.speedTests'), sectionId: VPN_SECTION_ID.methodology },
+    { label: translate('header.securityGuides'), sectionId: VPN_SECTION_ID.faq },
+  ];
 
   const navigateToSection = (sectionId: string) => {
     if (location.pathname !== PATH_VPN_APP.root) {
@@ -73,7 +76,7 @@ export function SiteHeader() {
               fontSize={{ xs: '1rem', sm: '1.22rem' }}
               letterSpacing="-0.01em"
             >
-              The Digital Vault
+              {translate('header.brandName')}
             </Typography>
           </Button>
 
@@ -98,16 +101,18 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <Button onClick={() => navigateToSection(VPN_SECTION_ID.rankings)} variant="contained" sx={{ ml: 1, px: 2.4, py: 1 }}>
-              Get Started
+            <LanguageSwitcher />
+            <Button onClick={() => navigateToSection(VPN_SECTION_ID.rankings)} variant="contained" sx={{ ml: 0.4, px: 2.4, py: 1 }}>
+              {translate('header.getStarted')}
             </Button>
           </Stack>
 
           <Stack direction="row" spacing={1} alignItems="center" sx={{ display: { xs: 'flex', lg: 'none' } }}>
+            <LanguageSwitcher />
             <Button onClick={() => navigateToSection(VPN_SECTION_ID.rankings)} variant="contained" size="small" sx={{ px: 1.5, minWidth: 0 }}>
-              Start
+              {translate('header.start')}
             </Button>
-            <IconButton aria-label="open navigation" color="primary" size="small">
+            <IconButton aria-label={translate('header.openNavigation')} color="primary" size="small">
               <MenuRoundedIcon />
             </IconButton>
           </Stack>

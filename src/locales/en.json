@@ -1,0 +1,227 @@
+{
+  "language": {
+    "label": "Language",
+    "english": "English",
+    "vietnamese": "Vietnamese"
+  },
+  "header": {
+    "brandName": "H2T VPN Rank",
+    "vpnRankings": "VPN Rankings",
+    "speedTests": "Speed Tests",
+    "securityGuides": "Security Guides",
+    "getStarted": "Get Started",
+    "start": "Start",
+    "openNavigation": "Open navigation"
+  },
+  "mobileNav": {
+    "bestVpns": "Best VPNs",
+    "speeds": "Speeds",
+    "guides": "Guides",
+    "labs": "Labs"
+  },
+  "toplist": {
+    "updatedLabel": "Updated: March 2026",
+    "heroTitlePrefix": "The World's Best",
+    "heroTitleHighlight": "VPN Services",
+    "heroDescription": "We conducted 2,500+ speed tests and audited privacy policies. Here are the only VPNs we trust for global users in 2026.",
+    "trustedByTitle": "Trusted by Leading VPN Communities",
+    "quickComparisonTitle": "Quick Comparison",
+    "tableProvider": "Provider",
+    "tableScore": "Score",
+    "tableTopHighlight": "Top Highlight",
+    "tableAction": "Action",
+    "visitSite": "Visit Site",
+    "methodologyTitle": "Our Rigorous Ranking Methodology",
+    "methodologyDescription": "We test providers with repeated speed checks, DNS leak verification, and policy review across multi-region scenarios before they make this list.",
+    "buyingNotesTitle": "Buying Notes",
+    "buyingNotesDescription": "Focus on speed consistency, privacy policy transparency, and app quality across desktop/mobile before making a purchase decision. Use the detail pages to compare real tradeoffs, not only marketing claims.",
+    "statServers": "Servers tested weekly",
+    "statLocations": "Global lab locations",
+    "statTracking": "Performance tracking"
+  },
+  "vpnCard": {
+    "editorsChoice": "Editor's Choice",
+    "score": "Score: {{score}}",
+    "viewDetails": "View Details"
+  },
+  "review": {
+    "backToTop5": "Back to Top 5",
+    "detailedReview": "Detailed Review",
+    "reviewTitle": "{{name}} Review",
+    "editorScore": "Editor Score: {{score}}/5",
+    "visitWebsite": "Visit Website",
+    "compareOthers": "Compare Others",
+    "advantages": "Advantages",
+    "limitations": "Limitations",
+    "basicInformation": "Basic Information",
+    "faqTitle": "FAQ",
+    "finalVerdictTitle": "Final Verdict",
+    "finalVerdictDescription": "{{name}} is a strong choice if its strengths match your use case. Review the pros/cons and specification table above before committing to a long-term plan."
+  },
+  "footer": {
+    "description": "Your trusted guide to digital privacy. We provide transparent, data-driven reviews to help international users compare VPN services quickly.",
+    "resourcesTitle": "Resources",
+    "resourceGaming": "VPN for Gaming",
+    "resourceLaws": "Privacy Laws 2026",
+    "resourceEncryption": "Encryption Guides",
+    "resourceRouters": "Routers for VPN",
+    "companyTitle": "Company",
+    "companyAbout": "About Our Lab",
+    "companyAffiliate": "Affiliate Disclosure",
+    "companyPolicy": "Privacy Policy",
+    "companyContact": "Contact",
+    "copyright": "© {{year}} H2T VPN Rank. All rights reserved.",
+    "rankingsUpdated": "Rankings are periodically updated using internal performance checks."
+  },
+  "vpnData": {
+    "common": {
+      "viewOffer": "View Offer",
+      "getExclusiveDeal": "Get Exclusive Deal",
+      "unlimited": "Unlimited",
+      "days30": "30 days"
+    },
+    "specLabels": {
+      "jurisdiction": "Jurisdiction",
+      "serverNetwork": "Server Network",
+      "protocol": "Protocol",
+      "simultaneousDevices": "Simultaneous Devices",
+      "moneyBack": "Money-back Guarantee"
+    },
+    "nordvpn": {
+      "summary": "The best balance of speed, privacy, and reliability for global users.",
+      "highlights": {
+        "speed": "Fast NordLynx performance",
+        "noLogs": "Independently audited no-logs policy",
+        "devices": "Up to 10 simultaneous devices"
+      },
+      "pros": {
+        "speedConsistency": "Excellent speed consistency",
+        "privacyPosture": "Strong privacy posture",
+        "streamingAccess": "Reliable streaming access"
+      },
+      "cons": {
+        "renewalPricing": "Renewal pricing can be high",
+        "advancedSettings": "Some advanced settings need onboarding"
+      },
+      "specValues": {
+        "serverNetwork": "118+ countries"
+      },
+      "faq": {
+        "streamingQuestion": "Is NordVPN suitable for streaming?",
+        "streamingAnswer": "Yes, it usually performs well on major platforms with stable speed and low buffering.",
+        "beginnerQuestion": "Can beginners use it easily?",
+        "beginnerAnswer": "The app is straightforward, but advanced options are better explained in the help center."
+      }
+    },
+    "expressvpn": {
+      "summary": "Premium VPN with strong cross-region performance and polished apps.",
+      "highlights": {
+        "servers": "Servers in 105 countries",
+        "lightway": "Lightway protocol for fast reconnection",
+        "support": "24/7 live support"
+      },
+      "pros": {
+        "stableApps": "Very stable apps",
+        "supportResponse": "Fast support response",
+        "travelReliability": "Good travel reliability"
+      },
+      "cons": {
+        "higherPrice": "Higher price tier",
+        "customControls": "Fewer custom controls than power-user VPNs"
+      },
+      "specValues": {
+        "serverNetwork": "105 countries"
+      },
+      "faq": {
+        "travelQuestion": "Does ExpressVPN work well when traveling?",
+        "travelAnswer": "Its network spread and app reliability make it a strong travel option for many users.",
+        "priceQuestion": "Is it worth the premium price?",
+        "priceAnswer": "If reliability and easy setup are your top priorities, many users consider it worth it."
+      }
+    },
+    "surfshark": {
+      "summary": "Great value pick with unlimited devices and competitive feature set.",
+      "highlights": {
+        "unlimitedDevices": "Unlimited devices per account",
+        "adBlock": "Built-in ad and tracker blocking",
+        "value": "Strong budget-to-feature ratio"
+      },
+      "pros": {
+        "value": "Excellent value",
+        "unlimitedDevices": "Unlimited devices",
+        "privacyExtras": "Useful privacy extras"
+      },
+      "cons": {
+        "speedVariability": "Occasional speed variability by region",
+        "interfaceBusy": "Interface can feel busy"
+      },
+      "specValues": {
+        "serverNetwork": "100 countries"
+      },
+      "faq": {
+        "audienceQuestion": "Who should choose Surfshark?",
+        "audienceAnswer": "Users with many devices and a tighter budget usually benefit the most.",
+        "unlimitedQuestion": "Is unlimited device support practical?",
+        "unlimitedAnswer": "Yes, it is helpful for families or users who protect all personal and work devices together."
+      }
+    },
+    "cyberghost": {
+      "summary": "User-friendly VPN with optimized profiles for streaming and browsing.",
+      "highlights": {
+        "streamingProfiles": "Streaming-optimized server profiles",
+        "guarantee": "45-day money-back guarantee",
+        "nospy": "NoSpy infrastructure option"
+      },
+      "pros": {
+        "beginnerApps": "Beginner-friendly apps",
+        "refundWindow": "Long refund window",
+        "serverInventory": "Large server inventory"
+      },
+      "cons": {
+        "desktopHeavy": "Desktop app can feel heavy",
+        "peakTimes": "Some locations are less consistent at peak times"
+      },
+      "specValues": {
+        "serverNetwork": "100 countries",
+        "moneyBack": "45 days (long plans)"
+      },
+      "faq": {
+        "beginnerQuestion": "Is CyberGhost good for beginners?",
+        "beginnerAnswer": "Yes, presets and guided categories reduce setup friction for first-time users.",
+        "standoutQuestion": "What stands out most?",
+        "standoutAnswer": "Its long refund period and task-focused server profiles are key differentiators."
+      }
+    },
+    "pia": {
+      "summary": "Privacy-focused option with advanced controls and open-source clients.",
+      "highlights": {
+        "openSource": "Open-source applications",
+        "usPresence": "Large US server presence",
+        "killSwitch": "Advanced kill switch options"
+      },
+      "pros": {
+        "customization": "Deep customization",
+        "transparency": "Open-source transparency",
+        "longPlanValue": "Strong value on long plans"
+      },
+      "cons": {
+        "polish": "UI is less polished",
+        "overwhelming": "Can be overwhelming for non-technical users"
+      },
+      "specValues": {
+        "serverNetwork": "91 countries"
+      },
+      "faq": {
+        "powerUserQuestion": "Is PIA good for power users?",
+        "powerUserAnswer": "Yes, it offers granular controls that advanced users usually appreciate.",
+        "tradeoffQuestion": "What is the main tradeoff?",
+        "tradeoffAnswer": "You get flexibility and value, but the interface feels less premium than top-tier competitors."
+      }
+    }
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The requested page does not exist or has moved.",
+    "backToHomepage": "Back to Homepage"
+  }
+}

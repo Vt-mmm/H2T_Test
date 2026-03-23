@@ -1,9 +1,12 @@
 import VerifiedUserRoundedIcon from '@mui/icons-material/VerifiedUserRounded';
 import { Box, Stack, Typography } from '@mui/material';
 import { METHODOLOGY_STATS } from '../../data/vpns';
+import { useLocales } from '../../hooks';
 import { VPN_SECTION_ID } from '../../routes/paths';
 
 export function MethodologySection() {
+  const { translate } = useLocales();
+
   return (
     <Box
       id={VPN_SECTION_ID.methodology}
@@ -19,11 +22,10 @@ export function MethodologySection() {
       <Stack alignItems="center" textAlign="center" maxWidth={900} mx="auto">
         <VerifiedUserRoundedIcon sx={{ fontSize: 44, color: '#fb6b00', mb: 1.5 }} />
         <Typography variant="h3" fontSize={{ xs: 26, sm: 32, md: 42 }} mb={1.6}>
-          Our Rigorous Ranking Methodology
+          {translate('toplist.methodologyTitle')}
         </Typography>
         <Typography color="rgba(255,255,255,.82)" maxWidth={720}>
-          We test providers with repeated speed checks, DNS leak verification, and policy review across multi-region
-          scenarios before they make this list.
+          {translate('toplist.methodologyDescription')}
         </Typography>
 
         <Box
@@ -36,7 +38,7 @@ export function MethodologySection() {
           }}
         >
           {METHODOLOGY_STATS.map((stat) => (
-            <Box key={stat.label}>
+            <Box key={stat.labelKey}>
               <Typography variant="h3" fontSize={44} lineHeight={1.1}>
                 {stat.value}
               </Typography>
@@ -50,7 +52,7 @@ export function MethodologySection() {
                   mt: 0.6,
                 }}
               >
-                {stat.label}
+                {translate(stat.labelKey)}
               </Typography>
             </Box>
           ))}

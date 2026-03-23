@@ -1,6 +1,7 @@
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import RemoveCircleRoundedIcon from '@mui/icons-material/RemoveCircleRounded';
 import { Box, List, ListItem, ListItemIcon, ListItemText, Paper, Typography } from '@mui/material';
+import { useLocales } from '../../hooks';
 import type { VpnProvider } from '../../types/vpn';
 
 interface ReviewProsConsProps {
@@ -8,6 +9,8 @@ interface ReviewProsConsProps {
 }
 
 export function ReviewProsCons({ vpn }: ReviewProsConsProps) {
+  const { translate } = useLocales();
+
   return (
     <Box
       sx={{
@@ -19,7 +22,7 @@ export function ReviewProsCons({ vpn }: ReviewProsConsProps) {
     >
       <Paper elevation={0} sx={{ borderRadius: 3, p: { xs: 2.2, sm: 3.2 } }}>
         <Typography variant="h4" fontSize={{ xs: 21, sm: 24 }} color="primary.main" mb={1.2}>
-          Advantages
+          {translate('review.advantages')}
         </Typography>
         <List disablePadding>
           {vpn.pros.map((item) => (
@@ -35,7 +38,7 @@ export function ReviewProsCons({ vpn }: ReviewProsConsProps) {
 
       <Paper elevation={0} sx={{ borderRadius: 3, p: { xs: 2.2, sm: 3.2 } }}>
         <Typography variant="h4" fontSize={{ xs: 21, sm: 24 }} color="primary.main" mb={1.2}>
-          Limitations
+          {translate('review.limitations')}
         </Typography>
         <List disablePadding>
           {vpn.cons.map((item) => (

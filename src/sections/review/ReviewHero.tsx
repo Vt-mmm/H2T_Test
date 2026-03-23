@@ -2,6 +2,7 @@ import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
 import { Box, Button, Chip, Link, Stack, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { useLocales } from '../../hooks';
 import { PATH_VPN_APP, VPN_SECTION_ID } from '../../routes/paths';
 import type { VpnProvider } from '../../types/vpn';
 import { vaultColors } from '../../theme';
@@ -11,10 +12,12 @@ interface ReviewHeroProps {
 }
 
 export function ReviewHero({ vpn }: ReviewHeroProps) {
+  const { translate } = useLocales();
+
   return (
     <Box mb={{ xs: 5, md: 7 }}>
       <Button component={RouterLink} to={PATH_VPN_APP.root} size="small" startIcon={<ArrowBackRoundedIcon />} sx={{ mb: 2 }}>
-        Back to Top 5
+        {translate('review.backToTop5')}
       </Button>
 
       <Stack
@@ -25,7 +28,7 @@ export function ReviewHero({ vpn }: ReviewHeroProps) {
       >
         <Box maxWidth={760}>
           <Chip
-            label="Detailed Review"
+            label={translate('review.detailedReview')}
             sx={{
               mb: 1.3,
               bgcolor: '#d9e2ff',
@@ -37,13 +40,13 @@ export function ReviewHero({ vpn }: ReviewHeroProps) {
             }}
           />
           <Typography variant="h2" fontSize={{ xs: 30, sm: 40, md: 52 }} color="primary.main" mb={1.2}>
-            {vpn.name} Review
+            {translate('review.reviewTitle', { name: vpn.name })}
           </Typography>
           <Typography color="text.secondary" mb={1.4} fontSize={{ xs: 15, sm: 16 }}>
             {vpn.summary}
           </Typography>
           <Typography fontWeight={700} color={vaultColors.accent}>
-            Editor Score: {vpn.score.toFixed(1)}/5
+            {translate('review.editorScore', { score: vpn.score.toFixed(1) })}
           </Typography>
         </Box>
 
@@ -57,7 +60,7 @@ export function ReviewHero({ vpn }: ReviewHeroProps) {
             fullWidth
             endIcon={<OpenInNewRoundedIcon />}
           >
-            Visit Website
+            {translate('review.visitWebsite')}
           </Button>
           <Button
             component={RouterLink}
@@ -66,7 +69,7 @@ export function ReviewHero({ vpn }: ReviewHeroProps) {
             variant="outlined"
             fullWidth
           >
-            Compare Others
+            {translate('review.compareOthers')}
           </Button>
         </Stack>
       </Stack>

@@ -1,10 +1,12 @@
 import { Box, Paper, Typography } from '@mui/material';
 import { TRUSTED_BY_BRANDS } from '../../data/vpns';
+import { useLocales } from '../../hooks';
 import { vaultColors } from '../../theme';
 
 const MARQUEE_DURATION_SECONDS = 28;
 
 export function TrustedBySection() {
+  const { translate } = useLocales();
   const trustedItems = [...TRUSTED_BY_BRANDS, ...TRUSTED_BY_BRANDS];
 
   return (
@@ -20,7 +22,7 @@ export function TrustedBySection() {
           mb: 1.4,
         }}
       >
-        Trusted by Leading VPN Communities
+        {translate('toplist.trustedByTitle')}
       </Typography>
 
       <Box

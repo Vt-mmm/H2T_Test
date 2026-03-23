@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocales } from '../hooks';
 import { VPN_SECTION_ID } from '../routes/paths';
 import { MethodologySection, QuickCompareSection, TopListHero, TrustedBySection, VpnGridSection } from '../sections/toplist';
 import { scrollToSection } from '../utils';
@@ -8,6 +9,7 @@ import { scrollToSection } from '../utils';
 export function TopVpnPage() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { translate } = useLocales();
 
   useEffect(() => {
     const locationState = location.state as { scrollTo?: string } | null;
@@ -33,11 +35,10 @@ export function TopVpnPage() {
 
       <Box id={VPN_SECTION_ID.faq} mt={{ xs: 7, md: 10 }}>
         <Typography variant="h3" fontSize={{ xs: 28, md: 36 }} color="primary.main" mb={1.6}>
-          Buying Notes
+          {translate('toplist.buyingNotesTitle')}
         </Typography>
         <Typography color="text.secondary" maxWidth={780}>
-          Focus on speed consistency, privacy policy transparency, and app quality across desktop/mobile before making
-          a purchase decision. Use the detail pages to compare real tradeoffs, not only marketing claims.
+          {translate('toplist.buyingNotesDescription')}
         </Typography>
       </Box>
     </Box>

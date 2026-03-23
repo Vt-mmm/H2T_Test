@@ -1,6 +1,7 @@
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import { Box, Button, Card, CardContent, Chip, Link, List, ListItem, Stack, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { useLocales } from '../../hooks';
 import { vaultColors } from '../../theme';
 import type { VpnProvider } from '../../types/vpn';
 import { formatScore, toReviewPath } from '../../utils/vpn';
@@ -10,6 +11,8 @@ interface VpnCardProps {
 }
 
 export function VpnCard({ vpn }: VpnCardProps) {
+  const { translate } = useLocales();
+
   return (
     <Card
       elevation={0}
@@ -34,7 +37,7 @@ export function VpnCard({ vpn }: VpnCardProps) {
     >
       {vpn.topPick && (
         <Chip
-          label="Editor's Choice"
+          label={translate('vpnCard.editorsChoice')}
           size="small"
           sx={{
             position: 'absolute',
@@ -113,7 +116,7 @@ export function VpnCard({ vpn }: VpnCardProps) {
               {vpn.name}
             </Typography>
             <Typography variant="body2" color={vaultColors.accent} fontWeight={700} mt={0.5}>
-              Score: {formatScore(vpn.score)}
+              {translate('vpnCard.score', { score: formatScore(vpn.score) })}
             </Typography>
           </Box>
         </Stack>
@@ -170,7 +173,7 @@ export function VpnCard({ vpn }: VpnCardProps) {
             endIcon={<ArrowForwardRoundedIcon />}
             sx={{ py: 1.3 }}
           >
-            View Details
+            {translate('vpnCard.viewDetails')}
           </Button>
 
           <Link href={vpn.ctaUrl} target="_blank" rel="noreferrer" underline="hover" color="text.secondary" fontWeight={600}>

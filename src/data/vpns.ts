@@ -1,37 +1,92 @@
 import type { VpnProvider } from '../types/vpn';
 
-export const VPN_PROVIDERS: VpnProvider[] = [
+export type TranslateFn = (key: string, options?: Record<string, unknown>) => string;
+
+interface VpnHighlightDefinition {
+  icon: string;
+  labelKey: string;
+}
+
+interface VpnSpecDefinition {
+  labelKey: string;
+  value: string;
+  valueKey?: string;
+}
+
+interface VpnFaqDefinition {
+  questionKey: string;
+  answerKey: string;
+}
+
+interface VpnProviderDefinition {
+  rank: number;
+  slug: string;
+  name: string;
+  score: number;
+  topPick?: boolean;
+  summaryKey: string;
+  highlights: VpnHighlightDefinition[];
+  ctaLabelKey: string;
+  ctaUrl: string;
+  prosKeys: string[];
+  consKeys: string[];
+  specs: VpnSpecDefinition[];
+  faqs: VpnFaqDefinition[];
+}
+
+const VPN_PROVIDER_DEFINITIONS: VpnProviderDefinition[] = [
   {
     rank: 1,
     slug: 'nordvpn',
     name: 'NordVPN',
     score: 4.9,
     topPick: true,
-    summary: 'The best balance of speed, privacy, and reliability for global users.',
+    summaryKey: 'vpnData.nordvpn.summary',
     highlights: [
-      { icon: 'SP', label: 'Fast NordLynx performance' },
-      { icon: 'NL', label: 'Independently audited no-logs policy' },
-      { icon: '10', label: 'Up to 10 simultaneous devices' },
+      { icon: 'SP', labelKey: 'vpnData.nordvpn.highlights.speed' },
+      { icon: 'NL', labelKey: 'vpnData.nordvpn.highlights.noLogs' },
+      { icon: '10', labelKey: 'vpnData.nordvpn.highlights.devices' },
     ],
-    ctaLabel: 'Get Exclusive Deal',
+    ctaLabelKey: 'vpnData.common.getExclusiveDeal',
     ctaUrl: 'https://nordvpn.com',
-    pros: ['Excellent speed consistency', 'Strong privacy posture', 'Reliable streaming access'],
-    cons: ['Renewal pricing can be high', 'Some advanced settings need onboarding'],
+    prosKeys: [
+      'vpnData.nordvpn.pros.speedConsistency',
+      'vpnData.nordvpn.pros.privacyPosture',
+      'vpnData.nordvpn.pros.streamingAccess',
+    ],
+    consKeys: ['vpnData.nordvpn.cons.renewalPricing', 'vpnData.nordvpn.cons.advancedSettings'],
     specs: [
-      { label: 'Jurisdiction', value: 'Panama' },
-      { label: 'Server Network', value: '118+ countries' },
-      { label: 'Protocol', value: 'NordLynx, OpenVPN, IKEv2' },
-      { label: 'Simultaneous Devices', value: '10' },
-      { label: 'Money-back Guarantee', value: '30 days' },
+      {
+        labelKey: 'vpnData.specLabels.jurisdiction',
+        value: 'Panama',
+      },
+      {
+        labelKey: 'vpnData.specLabels.serverNetwork',
+        value: '118+ countries',
+        valueKey: 'vpnData.nordvpn.specValues.serverNetwork',
+      },
+      {
+        labelKey: 'vpnData.specLabels.protocol',
+        value: 'NordLynx, OpenVPN, IKEv2',
+      },
+      {
+        labelKey: 'vpnData.specLabels.simultaneousDevices',
+        value: '10',
+      },
+      {
+        labelKey: 'vpnData.specLabels.moneyBack',
+        value: '30 days',
+        valueKey: 'vpnData.common.days30',
+      },
     ],
     faqs: [
       {
-        question: 'Is NordVPN suitable for streaming?',
-        answer: 'Yes, it usually performs well on major platforms with stable speed and low buffering.',
+        questionKey: 'vpnData.nordvpn.faq.streamingQuestion',
+        answerKey: 'vpnData.nordvpn.faq.streamingAnswer',
       },
       {
-        question: 'Can beginners use it easily?',
-        answer: 'The app is straightforward, but advanced options are better explained in the help center.',
+        questionKey: 'vpnData.nordvpn.faq.beginnerQuestion',
+        answerKey: 'vpnData.nordvpn.faq.beginnerAnswer',
       },
     ],
   },
@@ -40,31 +95,52 @@ export const VPN_PROVIDERS: VpnProvider[] = [
     slug: 'expressvpn',
     name: 'ExpressVPN',
     score: 4.8,
-    summary: 'Premium VPN with strong cross-region performance and polished apps.',
+    summaryKey: 'vpnData.expressvpn.summary',
     highlights: [
-      { icon: '105', label: 'Servers in 105 countries' },
-      { icon: 'LW', label: 'Lightway protocol for fast reconnection' },
-      { icon: '24', label: '24/7 live support' },
+      { icon: '105', labelKey: 'vpnData.expressvpn.highlights.servers' },
+      { icon: 'LW', labelKey: 'vpnData.expressvpn.highlights.lightway' },
+      { icon: '24', labelKey: 'vpnData.expressvpn.highlights.support' },
     ],
-    ctaLabel: 'View Offer',
+    ctaLabelKey: 'vpnData.common.viewOffer',
     ctaUrl: 'https://expressvpn.com',
-    pros: ['Very stable apps', 'Fast support response', 'Good travel reliability'],
-    cons: ['Higher price tier', 'Fewer custom controls than power-user VPNs'],
+    prosKeys: [
+      'vpnData.expressvpn.pros.stableApps',
+      'vpnData.expressvpn.pros.supportResponse',
+      'vpnData.expressvpn.pros.travelReliability',
+    ],
+    consKeys: ['vpnData.expressvpn.cons.higherPrice', 'vpnData.expressvpn.cons.customControls'],
     specs: [
-      { label: 'Jurisdiction', value: 'British Virgin Islands' },
-      { label: 'Server Network', value: '105 countries' },
-      { label: 'Protocol', value: 'Lightway, OpenVPN, IKEv2' },
-      { label: 'Simultaneous Devices', value: '8' },
-      { label: 'Money-back Guarantee', value: '30 days' },
+      {
+        labelKey: 'vpnData.specLabels.jurisdiction',
+        value: 'British Virgin Islands',
+      },
+      {
+        labelKey: 'vpnData.specLabels.serverNetwork',
+        value: '105 countries',
+        valueKey: 'vpnData.expressvpn.specValues.serverNetwork',
+      },
+      {
+        labelKey: 'vpnData.specLabels.protocol',
+        value: 'Lightway, OpenVPN, IKEv2',
+      },
+      {
+        labelKey: 'vpnData.specLabels.simultaneousDevices',
+        value: '8',
+      },
+      {
+        labelKey: 'vpnData.specLabels.moneyBack',
+        value: '30 days',
+        valueKey: 'vpnData.common.days30',
+      },
     ],
     faqs: [
       {
-        question: 'Does ExpressVPN work well when traveling?',
-        answer: 'Its network spread and app reliability make it a strong travel option for many users.',
+        questionKey: 'vpnData.expressvpn.faq.travelQuestion',
+        answerKey: 'vpnData.expressvpn.faq.travelAnswer',
       },
       {
-        question: 'Is it worth the premium price?',
-        answer: 'If reliability and easy setup are your top priorities, many users consider it worth it.',
+        questionKey: 'vpnData.expressvpn.faq.priceQuestion',
+        answerKey: 'vpnData.expressvpn.faq.priceAnswer',
       },
     ],
   },
@@ -73,31 +149,49 @@ export const VPN_PROVIDERS: VpnProvider[] = [
     slug: 'surfshark',
     name: 'Surfshark',
     score: 4.7,
-    summary: 'Great value pick with unlimited devices and competitive feature set.',
+    summaryKey: 'vpnData.surfshark.summary',
     highlights: [
-      { icon: 'UD', label: 'Unlimited devices per account' },
-      { icon: 'CW', label: 'Built-in ad and tracker blocking' },
-      { icon: 'BV', label: 'Strong budget-to-feature ratio' },
+      { icon: 'UD', labelKey: 'vpnData.surfshark.highlights.unlimitedDevices' },
+      { icon: 'CW', labelKey: 'vpnData.surfshark.highlights.adBlock' },
+      { icon: 'BV', labelKey: 'vpnData.surfshark.highlights.value' },
     ],
-    ctaLabel: 'View Offer',
+    ctaLabelKey: 'vpnData.common.viewOffer',
     ctaUrl: 'https://surfshark.com',
-    pros: ['Excellent value', 'Unlimited devices', 'Useful privacy extras'],
-    cons: ['Occasional speed variability by region', 'Interface can feel busy'],
+    prosKeys: ['vpnData.surfshark.pros.value', 'vpnData.surfshark.pros.unlimitedDevices', 'vpnData.surfshark.pros.privacyExtras'],
+    consKeys: ['vpnData.surfshark.cons.speedVariability', 'vpnData.surfshark.cons.interfaceBusy'],
     specs: [
-      { label: 'Jurisdiction', value: 'Netherlands' },
-      { label: 'Server Network', value: '100 countries' },
-      { label: 'Protocol', value: 'WireGuard, OpenVPN, IKEv2' },
-      { label: 'Simultaneous Devices', value: 'Unlimited' },
-      { label: 'Money-back Guarantee', value: '30 days' },
+      {
+        labelKey: 'vpnData.specLabels.jurisdiction',
+        value: 'Netherlands',
+      },
+      {
+        labelKey: 'vpnData.specLabels.serverNetwork',
+        value: '100 countries',
+        valueKey: 'vpnData.surfshark.specValues.serverNetwork',
+      },
+      {
+        labelKey: 'vpnData.specLabels.protocol',
+        value: 'WireGuard, OpenVPN, IKEv2',
+      },
+      {
+        labelKey: 'vpnData.specLabels.simultaneousDevices',
+        value: 'Unlimited',
+        valueKey: 'vpnData.common.unlimited',
+      },
+      {
+        labelKey: 'vpnData.specLabels.moneyBack',
+        value: '30 days',
+        valueKey: 'vpnData.common.days30',
+      },
     ],
     faqs: [
       {
-        question: 'Who should choose Surfshark?',
-        answer: 'Users with many devices and a tighter budget usually benefit the most.',
+        questionKey: 'vpnData.surfshark.faq.audienceQuestion',
+        answerKey: 'vpnData.surfshark.faq.audienceAnswer',
       },
       {
-        question: 'Is unlimited device support practical?',
-        answer: 'Yes, it is helpful for families or users who protect all personal and work devices together.',
+        questionKey: 'vpnData.surfshark.faq.unlimitedQuestion',
+        answerKey: 'vpnData.surfshark.faq.unlimitedAnswer',
       },
     ],
   },
@@ -106,31 +200,48 @@ export const VPN_PROVIDERS: VpnProvider[] = [
     slug: 'cyberghost',
     name: 'CyberGhost',
     score: 4.5,
-    summary: 'User-friendly VPN with optimized profiles for streaming and browsing.',
+    summaryKey: 'vpnData.cyberghost.summary',
     highlights: [
-      { icon: 'SO', label: 'Streaming-optimized server profiles' },
-      { icon: '45', label: '45-day money-back guarantee' },
-      { icon: 'NS', label: 'NoSpy infrastructure option' },
+      { icon: 'SO', labelKey: 'vpnData.cyberghost.highlights.streamingProfiles' },
+      { icon: '45', labelKey: 'vpnData.cyberghost.highlights.guarantee' },
+      { icon: 'NS', labelKey: 'vpnData.cyberghost.highlights.nospy' },
     ],
-    ctaLabel: 'View Offer',
+    ctaLabelKey: 'vpnData.common.viewOffer',
     ctaUrl: 'https://cyberghostvpn.com',
-    pros: ['Beginner-friendly apps', 'Long refund window', 'Large server inventory'],
-    cons: ['Desktop app can feel heavy', 'Some locations are less consistent at peak times'],
+    prosKeys: ['vpnData.cyberghost.pros.beginnerApps', 'vpnData.cyberghost.pros.refundWindow', 'vpnData.cyberghost.pros.serverInventory'],
+    consKeys: ['vpnData.cyberghost.cons.desktopHeavy', 'vpnData.cyberghost.cons.peakTimes'],
     specs: [
-      { label: 'Jurisdiction', value: 'Romania' },
-      { label: 'Server Network', value: '100 countries' },
-      { label: 'Protocol', value: 'WireGuard, OpenVPN, IKEv2' },
-      { label: 'Simultaneous Devices', value: '7' },
-      { label: 'Money-back Guarantee', value: '45 days (long plans)' },
+      {
+        labelKey: 'vpnData.specLabels.jurisdiction',
+        value: 'Romania',
+      },
+      {
+        labelKey: 'vpnData.specLabels.serverNetwork',
+        value: '100 countries',
+        valueKey: 'vpnData.cyberghost.specValues.serverNetwork',
+      },
+      {
+        labelKey: 'vpnData.specLabels.protocol',
+        value: 'WireGuard, OpenVPN, IKEv2',
+      },
+      {
+        labelKey: 'vpnData.specLabels.simultaneousDevices',
+        value: '7',
+      },
+      {
+        labelKey: 'vpnData.specLabels.moneyBack',
+        value: '45 days (long plans)',
+        valueKey: 'vpnData.cyberghost.specValues.moneyBack',
+      },
     ],
     faqs: [
       {
-        question: 'Is CyberGhost good for beginners?',
-        answer: 'Yes, presets and guided categories reduce setup friction for first-time users.',
+        questionKey: 'vpnData.cyberghost.faq.beginnerQuestion',
+        answerKey: 'vpnData.cyberghost.faq.beginnerAnswer',
       },
       {
-        question: 'What stands out most?',
-        answer: 'Its long refund period and task-focused server profiles are key differentiators.',
+        questionKey: 'vpnData.cyberghost.faq.standoutQuestion',
+        answerKey: 'vpnData.cyberghost.faq.standoutAnswer',
       },
     ],
   },
@@ -139,40 +250,89 @@ export const VPN_PROVIDERS: VpnProvider[] = [
     slug: 'private-internet-access',
     name: 'Private Internet Access',
     score: 4.4,
-    summary: 'Privacy-focused option with advanced controls and open-source clients.',
+    summaryKey: 'vpnData.pia.summary',
     highlights: [
-      { icon: 'OS', label: 'Open-source applications' },
-      { icon: 'US', label: 'Large US server presence' },
-      { icon: 'KS', label: 'Advanced kill switch options' },
+      { icon: 'OS', labelKey: 'vpnData.pia.highlights.openSource' },
+      { icon: 'US', labelKey: 'vpnData.pia.highlights.usPresence' },
+      { icon: 'KS', labelKey: 'vpnData.pia.highlights.killSwitch' },
     ],
-    ctaLabel: 'View Offer',
+    ctaLabelKey: 'vpnData.common.viewOffer',
     ctaUrl: 'https://privateinternetaccess.com',
-    pros: ['Deep customization', 'Open-source transparency', 'Strong value on long plans'],
-    cons: ['UI is less polished', 'Can be overwhelming for non-technical users'],
+    prosKeys: ['vpnData.pia.pros.customization', 'vpnData.pia.pros.transparency', 'vpnData.pia.pros.longPlanValue'],
+    consKeys: ['vpnData.pia.cons.polish', 'vpnData.pia.cons.overwhelming'],
     specs: [
-      { label: 'Jurisdiction', value: 'United States' },
-      { label: 'Server Network', value: '91 countries' },
-      { label: 'Protocol', value: 'WireGuard, OpenVPN, IKEv2' },
-      { label: 'Simultaneous Devices', value: 'Unlimited' },
-      { label: 'Money-back Guarantee', value: '30 days' },
+      {
+        labelKey: 'vpnData.specLabels.jurisdiction',
+        value: 'United States',
+      },
+      {
+        labelKey: 'vpnData.specLabels.serverNetwork',
+        value: '91 countries',
+        valueKey: 'vpnData.pia.specValues.serverNetwork',
+      },
+      {
+        labelKey: 'vpnData.specLabels.protocol',
+        value: 'WireGuard, OpenVPN, IKEv2',
+      },
+      {
+        labelKey: 'vpnData.specLabels.simultaneousDevices',
+        value: 'Unlimited',
+        valueKey: 'vpnData.common.unlimited',
+      },
+      {
+        labelKey: 'vpnData.specLabels.moneyBack',
+        value: '30 days',
+        valueKey: 'vpnData.common.days30',
+      },
     ],
     faqs: [
       {
-        question: 'Is PIA good for power users?',
-        answer: 'Yes, it offers granular controls that advanced users usually appreciate.',
+        questionKey: 'vpnData.pia.faq.powerUserQuestion',
+        answerKey: 'vpnData.pia.faq.powerUserAnswer',
       },
       {
-        question: 'What is the main tradeoff?',
-        answer: 'You get flexibility and value, but the interface feels less premium than top-tier competitors.',
+        questionKey: 'vpnData.pia.faq.tradeoffQuestion',
+        answerKey: 'vpnData.pia.faq.tradeoffAnswer',
       },
     ],
   },
 ];
 
+export function getVpnProviders(translate: TranslateFn): VpnProvider[] {
+  return VPN_PROVIDER_DEFINITIONS.map((provider) => ({
+    rank: provider.rank,
+    slug: provider.slug,
+    name: provider.name,
+    score: provider.score,
+    topPick: provider.topPick,
+    summary: translate(provider.summaryKey),
+    highlights: provider.highlights.map((highlight) => ({
+      icon: highlight.icon,
+      label: translate(highlight.labelKey),
+    })),
+    ctaLabel: translate(provider.ctaLabelKey),
+    ctaUrl: provider.ctaUrl,
+    pros: provider.prosKeys.map((key) => translate(key)),
+    cons: provider.consKeys.map((key) => translate(key)),
+    specs: provider.specs.map((spec) => ({
+      label: translate(spec.labelKey),
+      value: spec.valueKey ? translate(spec.valueKey) : spec.value,
+    })),
+    faqs: provider.faqs.map((faq) => ({
+      question: translate(faq.questionKey),
+      answer: translate(faq.answerKey),
+    })),
+  }));
+}
+
+export function getVpnProviderBySlug(slug: string, translate: TranslateFn) {
+  return getVpnProviders(translate).find((vpn) => vpn.slug === slug);
+}
+
 export const METHODOLOGY_STATS = [
-  { label: 'Servers tested weekly', value: '500+' },
-  { label: 'Global lab locations', value: '12' },
-  { label: 'Performance tracking', value: '24/7' },
+  { labelKey: 'toplist.statServers', value: '500+' },
+  { labelKey: 'toplist.statLocations', value: '12' },
+  { labelKey: 'toplist.statTracking', value: '24/7' },
 ];
 
 export const TRUSTED_BY_BRANDS = [
@@ -185,5 +345,3 @@ export const TRUSTED_BY_BRANDS = [
   { short: 'DC', name: 'Digital Citizen' },
   { short: 'SL', name: 'Security Lab' },
 ] as const;
-
-export const LAST_UPDATED_LABEL = 'Updated: March 2026';

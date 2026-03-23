@@ -12,13 +12,17 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import { VPN_PROVIDERS } from '../../data/vpns';
+import { getVpnProviders } from '../../data/vpns';
+import { useLocales } from '../../hooks';
 
 export function QuickCompareSection() {
+  const { translate } = useLocales();
+  const vpnProviders = getVpnProviders(translate);
+
   return (
     <Box mt={{ xs: 7, md: 10 }}>
       <Typography variant="h3" fontSize={{ xs: 28, md: 36 }} mb={2.5} color="primary.main">
-        Quick Comparison
+        {translate('toplist.quickComparisonTitle')}
       </Typography>
 
       <TableContainer
@@ -35,14 +39,14 @@ export function QuickCompareSection() {
         <Table aria-label="VPN quick comparison table">
           <TableHead>
             <TableRow>
-              <TableCell>Provider</TableCell>
-              <TableCell>Score</TableCell>
-              <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>Top Highlight</TableCell>
-              <TableCell align="right">Action</TableCell>
+              <TableCell>{translate('toplist.tableProvider')}</TableCell>
+              <TableCell>{translate('toplist.tableScore')}</TableCell>
+              <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' } }}>{translate('toplist.tableTopHighlight')}</TableCell>
+              <TableCell align="right">{translate('toplist.tableAction')}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {VPN_PROVIDERS.map((vpn) => (
+            {vpnProviders.map((vpn) => (
               <TableRow key={vpn.slug} hover>
                 <TableCell sx={{ fontWeight: 700, color: 'primary.main' }}>{vpn.name}</TableCell>
                 <TableCell>{vpn.score.toFixed(1)}/5</TableCell>
@@ -57,7 +61,7 @@ export function QuickCompareSection() {
                     endIcon={<OpenInNewRoundedIcon />}
                     sx={{ fontWeight: 700, whiteSpace: 'nowrap' }}
                   >
-                    Visit Site
+                    {translate('toplist.visitSite')}
                   </Button>
                 </TableCell>
               </TableRow>
