@@ -1,7 +1,7 @@
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
-import ShieldRoundedIcon from '@mui/icons-material/ShieldRounded';
 import {
   AppBar,
+  Box,
   Button,
   Container,
   IconButton,
@@ -14,6 +14,7 @@ import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { PATH_VPN_APP, VPN_SECTION_ID } from '../../routes/paths';
 import { vaultColors } from '../../theme';
 import { scrollToSection } from '../../utils';
+import h2tLogo from '../../assets/H2TLogo.jpg';
 
 const NAV_ITEMS = [
   { label: 'VPN Rankings', sectionId: VPN_SECTION_ID.rankings },
@@ -53,11 +54,18 @@ export function SiteHeader() {
               px: 0,
               minWidth: 0,
               color: 'primary.main',
-              '& .MuiButton-startIcon': { mr: 0.8 },
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1,
               '&:hover': { bgcolor: 'transparent' },
             }}
-            startIcon={<ShieldRoundedIcon />}
           >
+            <Box
+              component="img"
+              src={h2tLogo}
+              alt="H2T logo"
+              sx={{ width: 30, height: 30, borderRadius: 1, objectFit: 'cover', flexShrink: 0 }}
+            />
             <Typography
               fontFamily="Manrope, Inter, sans-serif"
               fontStyle="italic"

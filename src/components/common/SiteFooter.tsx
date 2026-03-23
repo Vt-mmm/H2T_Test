@@ -1,6 +1,6 @@
-import ShieldRoundedIcon from '@mui/icons-material/ShieldRounded';
 import { Box, Container, Grid, Link, Stack, Typography } from '@mui/material';
 import { vaultColors } from '../../theme';
+import h2tLogo from '../../assets/H2TLogo.jpg';
 
 const RESOURCE_LINKS = ['VPN for Gaming', 'Privacy Laws 2026', 'Encryption Guides', 'Routers for VPN'];
 const COMPANY_LINKS = ['About Our Lab', 'Affiliate Disclosure', 'Privacy Policy', 'Contact'];
@@ -12,7 +12,12 @@ export function SiteFooter() {
         <Grid container spacing={5}>
           <Grid size={{ xs: 12, sm: 12, md: 6 }}>
             <Stack direction="row" alignItems="center" spacing={1}>
-              <ShieldRoundedIcon color="primary" fontSize="small" />
+              <Box
+                component="img"
+                src={h2tLogo}
+                alt="H2T logo"
+                sx={{ width: 24, height: 24, borderRadius: 1, objectFit: 'cover', flexShrink: 0 }}
+              />
               <Typography fontFamily="Manrope, Inter, sans-serif" fontWeight={800} color="primary.main">
                 The Digital Vault
               </Typography>
