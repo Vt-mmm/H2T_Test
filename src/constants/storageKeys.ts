@@ -1,3 +1,7 @@
-export const StorageKeys = {
-  I18_LANGUAGE: 'i18nextLng',
-} as const;
+const StorageKeys = { 
+    // language
+    I18_LANGUAGE: 'i18nextLng',
+  };
+  
+  export { StorageKeys };
+  
