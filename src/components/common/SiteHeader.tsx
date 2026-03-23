@@ -11,11 +11,11 @@ import {
   Typography,
 } from '@mui/material';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
-import { useLocales } from '../../hooks';
-import { PATH_VPN_APP, VPN_SECTION_ID } from '../../routes/paths';
-import { vaultColors } from '../../theme';
-import { scrollToSection } from '../../utils';
-import h2tLogo from '../../assets/H2TLogo.jpg';
+import { useLocales } from 'hooks';
+import { PATH_VPN_APP, VPN_SECTION_ID } from 'routes/paths';
+import { vaultColors } from 'theme';
+import { scrollToSection } from 'utils';
+import h2tLogo from 'assets/H2TLogo.jpg';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
 export function SiteHeader() {

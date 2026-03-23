@@ -2,10 +2,10 @@ import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
 import { Box, Button, Chip, Link, Stack, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-import { useLocales } from '../../hooks';
-import { PATH_VPN_APP, VPN_SECTION_ID } from '../../routes/paths';
-import type { VpnProvider } from '../../types/vpn';
-import { vaultColors } from '../../theme';
+import { useLocales } from 'hooks';
+import { PATH_VPN_APP, VPN_SECTION_ID } from 'routes/paths';
+import type { VpnProvider } from 'types/vpn';
+import { vaultColors } from 'theme';
 
 interface ReviewHeroProps {
   vpn: VpnProvider;

@@ -1,6 +1,6 @@
-import type { RouteConfig } from '../../common/@types';
-import { NotFoundPage, TopVpnPage, VpnReviewPage } from '../../pages';
-import { PATH_ERROR, PATH_VPN_APP } from '../paths';
+import type { RouteConfig } from 'common/@types';
+import { NotFoundPage, TopVpnPage, VpnReviewPage } from 'pages';
+import { PATH_ERROR, PATH_VPN_APP } from 'routes/paths';
 
 export const publicRoutes: RouteConfig[] = [
   {

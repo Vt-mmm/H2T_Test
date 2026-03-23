@@ -1,8 +1,8 @@
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import RemoveCircleRoundedIcon from '@mui/icons-material/RemoveCircleRounded';
 import { Box, List, ListItem, ListItemIcon, ListItemText, Paper, Typography } from '@mui/material';
-import { useLocales } from '../../hooks';
-import type { VpnProvider } from '../../types/vpn';
+import { useLocales } from 'hooks';
+import type { VpnProvider } from 'types/vpn';
 
 interface ReviewProsConsProps {
   vpn: VpnProvider;

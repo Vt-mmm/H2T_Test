@@ -1,10 +1,10 @@
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import { Box, Button, Card, CardContent, Chip, Link, List, ListItem, Stack, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-import { useLocales } from '../../hooks';
-import { vaultColors } from '../../theme';
-import type { VpnProvider } from '../../types/vpn';
-import { formatScore, toReviewPath } from '../../utils/vpn';
+import { useLocales } from 'hooks';
+import { vaultColors } from 'theme';
+import type { VpnProvider } from 'types/vpn';
+import { formatScore, toReviewPath } from 'utils/vpn';
 
 interface VpnCardProps {
   vpn: VpnProvider;

@@ -1,8 +1,8 @@
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from '@mui/material';
-import { useLocales } from '../../hooks';
-import { VPN_SECTION_ID } from '../../routes/paths';
-import type { VpnProvider } from '../../types/vpn';
+import { useLocales } from 'hooks';
+import { VPN_SECTION_ID } from 'routes/paths';
+import type { VpnProvider } from 'types/vpn';
 
 interface ReviewFaqProps {
   vpn: VpnProvider;

@@ -1,4 +1,4 @@
-import { StorageKeys } from '../constants';
+import { StorageKeys } from 'constants';
 
 export const setLocalStorage = (name: string, value: string) => {
   localStorage.setItem(name, value);

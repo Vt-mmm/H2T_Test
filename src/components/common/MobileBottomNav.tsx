@@ -4,7 +4,7 @@ import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import WorkspacePremiumRoundedIcon from '@mui/icons-material/WorkspacePremiumRounded';
 import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
 import { useState } from 'react';
-import { useLocales } from '../../hooks';
+import { useLocales } from 'hooks';
 
 export function MobileBottomNav() {
   const [value, setValue] = useState(0);

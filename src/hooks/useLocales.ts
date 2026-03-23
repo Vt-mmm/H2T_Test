@@ -1,6 +1,6 @@
 import { enUS, viVN } from '@mui/material/locale';
 import { useTranslation } from 'react-i18next';
-import { getLanguage, setLanguage } from '../utils';
+import { getLanguage, setLanguage } from 'utils';
 
 const LANGS = [
   {

@@ -1,10 +1,10 @@
 import { Box, Typography } from '@mui/material';
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useLocales } from '../hooks';
-import { VPN_SECTION_ID } from '../routes/paths';
-import { MethodologySection, QuickCompareSection, TopListHero, TrustedBySection, VpnGridSection } from '../sections/toplist';
-import { scrollToSection } from '../utils';
+import { useLocales } from 'hooks';
+import { VPN_SECTION_ID } from 'routes/paths';
+import { MethodologySection, QuickCompareSection, TopListHero, TrustedBySection, VpnGridSection } from 'sections/toplist';
+import { scrollToSection } from 'utils';
 
 export function TopVpnPage() {
   const location = useLocation();

@@ -1,8 +1,8 @@
 import { Box } from '@mui/material';
-import { VpnCard } from '../../components/vpn';
-import { getVpnProviders } from '../../data/vpns';
-import { useLocales } from '../../hooks';
-import { VPN_SECTION_ID } from '../../routes/paths';
+import { VpnCard } from 'components/vpn';
+import { getVpnProviders } from 'data/vpns';
+import { useLocales } from 'hooks';
+import { VPN_SECTION_ID } from 'routes/paths';
 
 export function VpnGridSection() {
   const { translate } = useLocales();

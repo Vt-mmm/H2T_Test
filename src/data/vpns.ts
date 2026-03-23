@@ -1,4 +1,4 @@
-import type { VpnProvider } from '../types/vpn';
+import type { VpnProvider } from 'types/vpn';
 
 export type TranslateFn = (key: string, options?: Record<string, unknown>) => string;
 

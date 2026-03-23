@@ -12,8 +12,8 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import { getVpnProviders } from '../../data/vpns';
-import { useLocales } from '../../hooks';
+import { getVpnProviders } from 'data/vpns';
+import { useLocales } from 'hooks';
 
 export function QuickCompareSection() {
   const { translate } = useLocales();

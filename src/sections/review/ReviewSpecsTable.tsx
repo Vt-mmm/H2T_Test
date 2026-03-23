@@ -1,6 +1,6 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@mui/material';
-import { useLocales } from '../../hooks';
-import type { VpnProvider } from '../../types/vpn';
+import { useLocales } from 'hooks';
+import type { VpnProvider } from 'types/vpn';
 
 interface ReviewSpecsTableProps {
   vpn: VpnProvider;

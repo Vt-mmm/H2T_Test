@@ -1,7 +1,7 @@
 import { Box, Container, Grid, Link, Stack, Typography } from '@mui/material';
-import { useLocales } from '../../hooks';
-import { vaultColors } from '../../theme';
-import h2tLogo from '../../assets/H2TLogo.jpg';
+import { useLocales } from 'hooks';
+import { vaultColors } from 'theme';
+import h2tLogo from 'assets/H2TLogo.jpg';
 
 export function SiteFooter() {
   const { translate } = useLocales();

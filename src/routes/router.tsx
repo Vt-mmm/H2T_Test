@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { MainLayout } from '../layouts';
+import { MainLayout } from 'layouts';
 import { publicRoutes } from './config';
 import { PATH_ERROR } from './paths';
 

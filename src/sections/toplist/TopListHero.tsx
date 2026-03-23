@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
-import { useLocales } from '../../hooks';
-import { vaultColors } from '../../theme';
+import { useLocales } from 'hooks';
+import { vaultColors } from 'theme';
 
 export function TopListHero() {
   const { translate } = useLocales();

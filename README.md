@@ -1,42 +1,69 @@
-# H2T Test - VPN Web Application
+# H2T VPN Web Application
 
-Frontend assignment project built with **React + TypeScript + Material UI**.
+Frontend assignment project for H2T Test, built with React, TypeScript, and Material UI.
 
-## Overview
-- 2 main pages:
-1. Top 5 VPN landing page
-2. VPN detail review page
-- Target audience: international users (English content)
-- Data source: mock/static only (no backend)
+## 1. Project Scope
+- Build a website with 2 pages:
+1. Top 5 VPN landing/toplist page
+2. Detailed VPN review page
+- Frontend only, no backend integration
+- Use mock data
+- Content designed for international users
 
-## Tech Stack
+## 2. Main Features
+- Top 5 VPN cards with ranking, score, key highlights, and CTA buttons
+- Detailed review page per VPN:
+1. Overview
+2. Pros and cons
+3. Specs table
+4. FAQ
+5. Final verdict + CTA
+- Language switcher (English and Vietnamese)
+- Responsive layout for desktop and mobile
+- Route-change scroll reset to keep navigation behavior consistent
+
+## 3. Tech Stack
 - React 19
 - TypeScript
 - Vite
 - Material UI (`@mui/material`, `@mui/icons-material`, Emotion)
 - React Router
+- i18next + react-i18next
 
-## Requirements
+## 4. Requirements
 - Node.js `>= 18`
 - npm `>= 9`
 
-## Getting Started
+## 5. Run Project
 ```bash
 npm install
 npm run dev
 ```
 
-Open: `http://localhost:5173`
+Default local URL:
+- [http://localhost:5173](http://localhost:5173)
 
-## Scripts
+## 6. Scripts
 ```bash
-npm run dev      # start local development server
-npm run build    # type-check + production build
+npm run dev      # start development server
+npm run build    # type-check and create production build
 npm run preview  # preview production build
 npm run lint     # run eslint
 ```
 
-## Project Structure
+## 7. Build and Deploy
+Build output is generated in `dist/`:
+
+```bash
+npm run build
+```
+
+This project can be deployed as a static site on:
+- Vercel
+- Netlify
+- Cloudflare Pages
+
+## 8. Project Structure
 ```text
 src/
   assets/
@@ -45,8 +72,11 @@ src/
   components/
     common/
     vpn/
+  constants/
   data/
+  hooks/
   layouts/
+  locales/
   pages/
   routes/
     config/
@@ -58,53 +88,42 @@ src/
   utils/
 ```
 
-## Routing
+## 9. Routing
 - `/` -> Top VPN page
-- `/review/:slug` -> VPN detail page
+- `/review/:slug` -> VPN review detail page
 - `/error/404` -> Not found page
 
 Route constants are centralized in `src/routes/paths.ts`.
 
-## Deployment
-This is a static frontend application. You can deploy the `dist/` output to:
-- Vercel
-- Netlify
-- Cloudflare Pages
+## 10. Internationalization (i18n)
+- Languages: English (`en`) and Vietnamese (`vi`)
+- Translation resources:
+1. `src/locales/en.json`
+2. `src/locales/vi.json`
+- Current language is stored in localStorage key: `i18nextLng`
 
-Build first:
-```bash
-npm run build
-```
-
-## Submission Links
-- GitHub: `https://github.com/Vt-mmm/H2T_Test`
-- Demo: deployed on Vercel
-
-## Layout & Content Explanation
-- The Top 5 page is implemented as a landing/toplist format, not a long blog article.
-- Visual hierarchy is built with:
-1. Hero headline + subtitle
-2. VPN ranking cards with clear score and CTA
+## 11. Layout and Content Decisions
+- The homepage follows a landing/toplist format, not a long blog article.
+- Information hierarchy:
+1. Hero and positioning statement
+2. Ranked VPN cards with short, scannable highlights
 3. Quick comparison table
 4. Methodology and buying notes
-- Each VPN card keeps content short and scannable:
-1. Rank + provider name
-2. Score
-3. 2-3 key highlights
-4. Primary CTA (`View Details`) and secondary CTA (`View Offer`)
-- The review page focuses on conversion + clarity:
-1. Overview and score
-2. Advantages vs limitations
-3. Basic information table
-4. CTA to external provider site
-5. FAQ and final verdict
-- The layout is responsive for desktop and mobile with adaptive grid/card behavior and section spacing.
+- Review page structure is focused on clarity and CTA placement.
+- Content is concise, easy to scan, and organized by sections.
 
-## References
-- Material UI documentation: `https://mui.com/`
-- React Router documentation: `https://reactrouter.com/`
-- Public VPN information pages were used only as general reference for mock content.
+## 12. Code Organization Notes
+- Absolute imports are enabled with `baseUrl: "src"` for cleaner imports such as:
+1. `import { useLocales } from 'hooks';`
+2. `import { PATH_VPN_APP } from 'routes/paths';`
+3. `import { getLanguage } from 'utils';`
+- Utility logic is centralized through `src/utils` with a core `utils.ts` file.
 
-## Notes
-- No affiliate links or real discount logic are implemented.
-- Backend integration is intentionally out of scope for this test.
+## 13. References
+- Material UI: [https://mui.com/](https://mui.com/)
+- React Router: [https://reactrouter.com/](https://reactrouter.com/)
+- i18next: [https://www.i18next.com/](https://www.i18next.com/)
+
+## 14. Notes
+- No affiliate logic or real discount integration is implemented.
+- Backend and database are intentionally out of scope for this assignment.

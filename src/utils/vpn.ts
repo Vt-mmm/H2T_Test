@@ -1,6 +1,6 @@
-import type { TranslateFn } from '../data/vpns';
-import { getVpnProviderBySlug } from '../data/vpns';
-import { PATH_VPN_APP } from '../routes/paths';
+import type { TranslateFn } from 'data/vpns';
+import { getVpnProviderBySlug } from 'data/vpns';
+import { PATH_VPN_APP } from 'routes/paths';
 import { path } from './path';
 
 export function getVpnBySlug(slug: string, translate: TranslateFn) {

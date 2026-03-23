@@ -3,7 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useMemo } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { useLocales } from './hooks';
-import { AppRouter } from './routes';
+import { AppRouter, ScrollToTop } from './routes';
 import { appTheme } from './theme';
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
     <ThemeProvider theme={localizedTheme}>
       <CssBaseline />
       <BrowserRouter>
+        <ScrollToTop />
         <AppRouter />
       </BrowserRouter>
     </ThemeProvider>

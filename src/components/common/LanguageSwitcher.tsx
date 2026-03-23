@@ -2,7 +2,7 @@ import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 import { Box, IconButton, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
 import { useState } from 'react';
 import type { MouseEvent } from 'react';
-import { useLocales } from '../../hooks';
+import { useLocales } from 'hooks';
 
 export function LanguageSwitcher() {
   const { allLang, currentLang, onChangeLang, translate } = useLocales();

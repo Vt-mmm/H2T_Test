@@ -1,6 +1,6 @@
 import { Box, Container } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-import { MobileBottomNav, SiteFooter, SiteHeader } from '../components/common';
+import { MobileBottomNav, SiteFooter, SiteHeader } from 'components/common';
 
 export function MainLayout() {
   return (

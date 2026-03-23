@@ -1,8 +1,8 @@
 import VerifiedUserRoundedIcon from '@mui/icons-material/VerifiedUserRounded';
 import { Box, Stack, Typography } from '@mui/material';
-import { METHODOLOGY_STATS } from '../../data/vpns';
-import { useLocales } from '../../hooks';
-import { VPN_SECTION_ID } from '../../routes/paths';
+import { METHODOLOGY_STATS } from 'data/vpns';
+import { useLocales } from 'hooks';
+import { VPN_SECTION_ID } from 'routes/paths';
 
 export function MethodologySection() {
   const { translate } = useLocales();

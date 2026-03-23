@@ -1,8 +1,8 @@
 import { Box, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import { useLocales } from '../hooks';
-import { ReviewFaq, ReviewHero, ReviewProsCons, ReviewSpecsTable } from '../sections/review';
-import { getVpnBySlug } from '../utils';
+import { useLocales } from 'hooks';
+import { ReviewFaq, ReviewHero, ReviewProsCons, ReviewSpecsTable } from 'sections/review';
+import { getVpnBySlug } from 'utils';
 import { NotFoundPage } from './NotFoundPage';
 
 export function VpnReviewPage() {

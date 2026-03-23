@@ -1,4 +1,4 @@
-import { path } from '../utils/path';
+import { path } from 'utils/path';
 
 const ROOTS_VPN_APP = '/';
 const ROOTS_ERROR = '/error';

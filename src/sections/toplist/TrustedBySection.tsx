@@ -1,7 +1,7 @@
 import { Box, Paper, Typography } from '@mui/material';
-import { TRUSTED_BY_BRANDS } from '../../data/vpns';
-import { useLocales } from '../../hooks';
-import { vaultColors } from '../../theme';
+import { TRUSTED_BY_BRANDS } from 'data/vpns';
+import { useLocales } from 'hooks';
+import { vaultColors } from 'theme';
 
 const MARQUEE_DURATION_SECONDS = 28;
 
