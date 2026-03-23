@@ -5,78 +5,78 @@
     "vietnamese": "Tiếng Việt"
   },
   "header": {
-    "brandName": "H2T Xếp Hạng VPN",
-    "vpnRankings": "Bảng xếp hạng VPN",
+    "brandName": "H2T VPN Rank",
+    "vpnRankings": "Xếp hạng VPN",
     "speedTests": "Kiểm tra tốc độ",
     "securityGuides": "Hướng dẫn bảo mật",
-    "getStarted": "Bắt đầu",
+    "getStarted": "Bắt đầu ngay",
     "start": "Bắt đầu",
-    "openNavigation": "Mở điều hướng"
+    "openNavigation": "Mở menu điều hướng"
   },
   "mobileNav": {
-    "bestVpns": "Top VPN",
+    "bestVpns": "VPN tốt nhất",
     "speeds": "Tốc độ",
     "guides": "Hướng dẫn",
     "labs": "Phòng lab"
   },
   "toplist": {
-    "updatedLabel": "Cập nhật: Tháng 3/2026",
-    "heroTitlePrefix": "Dịch Vụ",
-    "heroTitleHighlight": "VPN Tốt Nhất Thế Giới",
-    "heroDescription": "Chúng tôi đã thực hiện hơn 2.500 bài test tốc độ và kiểm tra chính sách quyền riêng tư. Đây là những VPN chúng tôi tin dùng cho người dùng toàn cầu trong năm 2026.",
+    "updatedLabel": "Cập nhật: Tháng 3 năm 2026",
+    "heroTitlePrefix": "Những dịch vụ",
+    "heroTitleHighlight": "VPN hàng đầu thế giới",
+    "heroDescription": "Chúng tôi đã thực hiện hơn 2.500 lần kiểm tra tốc độ và rà soát chính sách quyền riêng tư. Đây là các VPN mà chúng tôi tin dùng cho người dùng toàn cầu trong năm 2026.",
     "trustedByTitle": "Được tin cậy bởi các cộng đồng VPN hàng đầu",
     "quickComparisonTitle": "So sánh nhanh",
     "tableProvider": "Nhà cung cấp",
     "tableScore": "Điểm",
-    "tableTopHighlight": "Điểm nổi bật",
+    "tableTopHighlight": "Điểm nổi bật chính",
     "tableAction": "Hành động",
-    "visitSite": "Truy cập",
-    "methodologyTitle": "Phương Pháp Xếp Hạng Nghiêm Ngặt",
-    "methodologyDescription": "Chúng tôi kiểm tra nhà cung cấp bằng các bài đo tốc độ lặp lại, kiểm tra rò rỉ DNS và đánh giá chính sách trên nhiều khu vực trước khi đưa vào danh sách.",
-    "buyingNotesTitle": "Lưu ý khi chọn VPN",
-    "buyingNotesDescription": "Hãy ưu tiên độ ổn định tốc độ, tính minh bạch về chính sách riêng tư và chất lượng ứng dụng trên desktop/mobile trước khi mua. Dùng trang chi tiết để so sánh trade-off thực tế thay vì chỉ dựa vào quảng cáo.",
-    "statServers": "Máy chủ test mỗi tuần",
-    "statLocations": "Vị trí lab toàn cầu",
+    "visitSite": "Truy cập trang",
+    "methodologyTitle": "Phương pháp xếp hạng nghiêm ngặt của chúng tôi",
+    "methodologyDescription": "Chúng tôi kiểm tra nhà cung cấp bằng các lần đo tốc độ lặp lại, kiểm tra rò rỉ DNS và rà soát chính sách trong nhiều kịch bản khu vực trước khi đưa vào danh sách này.",
+    "buyingNotesTitle": "Lưu ý khi chọn mua",
+    "buyingNotesDescription": "Trước khi quyết định, hãy ưu tiên độ ổn định tốc độ, mức minh bạch của chính sách quyền riêng tư và chất lượng ứng dụng trên desktop/mobile. Hãy dùng trang chi tiết để so sánh các đánh đổi thực tế, không chỉ dựa vào thông điệp quảng cáo.",
+    "statServers": "Máy chủ được kiểm tra hằng tuần",
+    "statLocations": "Địa điểm phòng lab toàn cầu",
     "statTracking": "Theo dõi hiệu năng"
   },
   "vpnCard": {
-    "editorsChoice": "Lựa chọn biên tập",
-    "bestForTopPick": "Phù hợp nhất: Tốc độ & riêng tư",
+    "editorsChoice": "Lựa chọn của biên tập viên",
+    "bestForTopPick": "Phù hợp nhất: Tốc độ & quyền riêng tư",
     "score": "Điểm: {{score}}",
     "viewDetails": "Xem chi tiết"
   },
   "review": {
     "backToTop5": "Quay lại Top 5",
     "detailedReview": "Đánh giá chi tiết",
-    "reviewTitle": "Đánh Giá {{name}}",
+    "reviewTitle": "Đánh giá {{name}}",
     "editorScore": "Điểm biên tập: {{score}}/5",
     "communityScore": "Điểm cộng đồng: {{score}}/5 ({{count}} bình luận)",
-    "communityRatingTitle": "Đánh Giá & Bình Luận Cộng Đồng",
+    "communityRatingTitle": "Đánh giá và bình luận cộng đồng",
     "basedOnComments": "Dựa trên {{count}} bình luận người dùng",
     "recentComments": "Bình luận gần đây",
     "visitWebsite": "Truy cập website",
-    "compareOthers": "So sánh VPN khác",
+    "compareOthers": "So sánh với VPN khác",
     "advantages": "Ưu điểm",
     "limitations": "Hạn chế",
     "basicInformation": "Thông tin cơ bản",
     "faqTitle": "Câu hỏi thường gặp",
-    "finalVerdictTitle": "Kết luận",
-    "finalVerdictDescription": "{{name}} là lựa chọn tốt nếu điểm mạnh phù hợp nhu cầu của bạn. Hãy xem ưu/nhược điểm và bảng thông số bên trên trước khi chọn gói dài hạn."
+    "finalVerdictTitle": "Kết luận cuối cùng",
+    "finalVerdictDescription": "{{name}} là lựa chọn mạnh nếu điểm mạnh của dịch vụ phù hợp với nhu cầu của bạn. Hãy xem ưu/nhược điểm và bảng thông số ở trên trước khi chọn gói dài hạn."
   },
   "footer": {
-    "description": "Nguồn tham khảo đáng tin cậy về quyền riêng tư số. Chúng tôi cung cấp đánh giá minh bạch dựa trên dữ liệu để giúp người dùng toàn cầu so sánh VPN nhanh hơn.",
+    "description": "Nguồn tham khảo đáng tin cậy về quyền riêng tư số. Chúng tôi cung cấp các bài đánh giá minh bạch dựa trên dữ liệu để giúp người dùng quốc tế so sánh dịch vụ VPN nhanh chóng.",
     "resourcesTitle": "Tài nguyên",
-    "resourceGaming": "VPN cho game",
+    "resourceGaming": "VPN cho chơi game",
     "resourceLaws": "Luật quyền riêng tư 2026",
     "resourceEncryption": "Hướng dẫn mã hóa",
-    "resourceRouters": "Router dùng VPN",
+    "resourceRouters": "Router hỗ trợ VPN",
     "companyTitle": "Công ty",
-    "companyAbout": "Về phòng lab",
-    "companyAffiliate": "Công bố affiliate",
+    "companyAbout": "Về phòng lab của chúng tôi",
+    "companyAffiliate": "Công bố liên kết tiếp thị",
     "companyPolicy": "Chính sách quyền riêng tư",
     "companyContact": "Liên hệ",
     "copyright": "© {{year}} H2T VPN Rank. Bảo lưu mọi quyền.",
-    "rankingsUpdated": "Bảng xếp hạng được cập nhật định kỳ theo kiểm tra hiệu năng nội bộ."
+    "rankingsUpdated": "Bảng xếp hạng được cập nhật định kỳ dựa trên các bài kiểm tra hiệu năng nội bộ."
   },
   "vpnData": {
     "common": {
@@ -86,23 +86,23 @@
       "days30": "30 ngày"
     },
     "specLabels": {
-      "jurisdiction": "Trụ sở pháp lý",
+      "jurisdiction": "Pháp lý",
       "serverNetwork": "Mạng máy chủ",
       "protocol": "Giao thức",
-      "simultaneousDevices": "Số thiết bị đồng thời",
+      "simultaneousDevices": "Thiết bị đồng thời",
       "moneyBack": "Cam kết hoàn tiền"
     },
     "nordvpn": {
-      "summary": "Sự cân bằng tốt nhất giữa tốc độ, quyền riêng tư và độ ổn định cho người dùng toàn cầu.",
+      "summary": "Cân bằng tốt giữa tốc độ, quyền riêng tư và độ ổn định cho người dùng toàn cầu.",
       "highlights": {
-        "speed": "Hiệu năng NordLynx tốc độ cao",
-        "noLogs": "Chính sách no-logs được kiểm toán độc lập",
-        "devices": "Tối đa 10 thiết bị đồng thời"
+        "speed": "Hiệu năng NordLynx nhanh",
+        "noLogs": "Chính sách không lưu log được kiểm toán độc lập",
+        "devices": "Hỗ trợ tối đa 10 thiết bị đồng thời"
       },
       "pros": {
-        "speedConsistency": "Tốc độ ổn định rất tốt",
-        "privacyPosture": "Nền tảng bảo mật mạnh",
-        "streamingAccess": "Xem streaming ổn định"
+        "speedConsistency": "Độ ổn định tốc độ rất tốt",
+        "privacyPosture": "Tiêu chuẩn quyền riêng tư mạnh",
+        "streamingAccess": "Truy cập streaming ổn định"
       },
       "cons": {
         "renewalPricing": "Giá gia hạn có thể cao",
@@ -113,13 +113,13 @@
       },
       "faq": {
         "streamingQuestion": "NordVPN có phù hợp để xem streaming không?",
-        "streamingAnswer": "Có, dịch vụ thường hoạt động tốt trên các nền tảng lớn với tốc độ ổn định và ít buffering.",
+        "streamingAnswer": "Có. Dịch vụ thường hoạt động tốt trên các nền tảng lớn với tốc độ ổn định và ít giật/lag.",
         "beginnerQuestion": "Người mới có dễ dùng không?",
-        "beginnerAnswer": "Ứng dụng khá dễ dùng, còn tùy chọn nâng cao nên xem thêm trong trung tâm trợ giúp."
+        "beginnerAnswer": "Ứng dụng dễ dùng, còn các tùy chọn nâng cao được giải thích rõ hơn trong trung tâm trợ giúp."
       }
     },
     "expressvpn": {
-      "summary": "VPN cao cấp với hiệu năng đa khu vực mạnh và ứng dụng được hoàn thiện tốt.",
+      "summary": "VPN cao cấp với hiệu năng ổn định xuyên khu vực và ứng dụng hoàn thiện tốt.",
       "highlights": {
         "servers": "Máy chủ tại 105 quốc gia",
         "lightway": "Giao thức Lightway giúp kết nối lại nhanh",
@@ -127,51 +127,51 @@
       },
       "pros": {
         "stableApps": "Ứng dụng rất ổn định",
-        "supportResponse": "Phản hồi hỗ trợ nhanh",
-        "travelReliability": "Độ ổn định tốt khi di chuyển"
+        "supportResponse": "Hỗ trợ phản hồi nhanh",
+        "travelReliability": "Hoạt động ổn định khi di chuyển"
       },
       "cons": {
         "higherPrice": "Mức giá cao hơn mặt bằng chung",
-        "customControls": "Ít tùy chỉnh nâng cao hơn các VPN cho người dùng chuyên sâu"
+        "customControls": "Ít tùy chỉnh chuyên sâu hơn các VPN cho người dùng nâng cao"
       },
       "specValues": {
         "serverNetwork": "105 quốc gia"
       },
       "faq": {
         "travelQuestion": "ExpressVPN có dùng tốt khi đi du lịch không?",
-        "travelAnswer": "Độ phủ máy chủ và độ ổn định ứng dụng giúp đây là lựa chọn tốt cho nhiều người thường xuyên di chuyển.",
+        "travelAnswer": "Độ phủ máy chủ rộng và ứng dụng ổn định khiến đây là lựa chọn tốt cho nhiều người hay di chuyển.",
         "priceQuestion": "Mức giá cao có xứng đáng không?",
-        "priceAnswer": "Nếu bạn ưu tiên độ ổn định và triển khai nhanh, nhiều người dùng vẫn đánh giá là đáng tiền."
+        "priceAnswer": "Nếu bạn ưu tiên độ ổn định và thiết lập nhanh, nhiều người dùng cho rằng mức giá này là hợp lý."
       }
     },
     "surfshark": {
-      "summary": "Lựa chọn đáng giá với thiết bị không giới hạn và bộ tính năng cạnh tranh.",
+      "summary": "Lựa chọn giá trị với thiết bị không giới hạn và bộ tính năng cạnh tranh.",
       "highlights": {
-        "unlimitedDevices": "Không giới hạn thiết bị mỗi tài khoản",
+        "unlimitedDevices": "Không giới hạn thiết bị cho mỗi tài khoản",
         "adBlock": "Tích hợp chặn quảng cáo và trình theo dõi",
-        "value": "Tỷ lệ giá trên tính năng rất tốt"
+        "value": "Tỷ lệ giá/tính năng tốt"
       },
       "pros": {
-        "value": "Giá trị sử dụng rất tốt",
+        "value": "Giá trị sử dụng cao",
         "unlimitedDevices": "Không giới hạn thiết bị",
-        "privacyExtras": "Có thêm tiện ích bảo mật hữu ích"
+        "privacyExtras": "Các tính năng quyền riêng tư bổ sung hữu ích"
       },
       "cons": {
         "speedVariability": "Tốc độ đôi lúc dao động theo khu vực",
-        "interfaceBusy": "Giao diện có thể hơi rối"
+        "interfaceBusy": "Giao diện có thể hơi rối với người mới"
       },
       "specValues": {
         "serverNetwork": "100 quốc gia"
       },
       "faq": {
         "audienceQuestion": "Ai nên chọn Surfshark?",
-        "audienceAnswer": "Người có nhiều thiết bị và ngân sách vừa phải thường phù hợp nhất.",
+        "audienceAnswer": "Người dùng có nhiều thiết bị và ngân sách vừa phải thường hưởng lợi nhiều nhất.",
         "unlimitedQuestion": "Không giới hạn thiết bị có thực sự hữu ích không?",
-        "unlimitedAnswer": "Có, rất hữu ích cho gia đình hoặc người muốn bảo vệ toàn bộ thiết bị cá nhân và công việc cùng lúc."
+        "unlimitedAnswer": "Có. Tính năng này rất hữu ích cho gia đình hoặc người muốn bảo vệ đồng thời thiết bị cá nhân và công việc."
       }
     },
     "cyberghost": {
-      "summary": "VPN thân thiện người dùng với profile tối ưu cho streaming và duyệt web.",
+      "summary": "VPN thân thiện với người dùng, có các profile tối ưu cho streaming và duyệt web.",
       "highlights": {
         "streamingProfiles": "Profile máy chủ tối ưu cho streaming",
         "guarantee": "Cam kết hoàn tiền 45 ngày",
@@ -179,8 +179,8 @@
       },
       "pros": {
         "beginnerApps": "Ứng dụng thân thiện với người mới",
-        "refundWindow": "Thời gian hoàn tiền dài",
-        "serverInventory": "Kho máy chủ lớn"
+        "refundWindow": "Thời hạn hoàn tiền dài",
+        "serverInventory": "Mạng máy chủ lớn"
       },
       "cons": {
         "desktopHeavy": "Ứng dụng desktop có thể hơi nặng",
@@ -192,16 +192,16 @@
       },
       "faq": {
         "beginnerQuestion": "CyberGhost có phù hợp cho người mới không?",
-        "beginnerAnswer": "Có, các preset và danh mục hướng dẫn giúp giảm đáng kể thao tác thiết lập ban đầu.",
+        "beginnerAnswer": "Có. Các preset và danh mục hướng dẫn giúp giảm ma sát khi thiết lập cho người mới.",
         "standoutQuestion": "Điểm nổi bật nhất là gì?",
-        "standoutAnswer": "Thời gian hoàn tiền dài và profile máy chủ theo tác vụ là hai điểm khác biệt rõ nhất."
+        "standoutAnswer": "Thời hạn hoàn tiền dài và profile máy chủ theo tác vụ là hai điểm khác biệt nổi bật."
       }
     },
     "pia": {
-      "summary": "Lựa chọn tập trung quyền riêng tư với tùy chỉnh nâng cao và ứng dụng mã nguồn mở.",
+      "summary": "Lựa chọn tập trung vào quyền riêng tư với khả năng tùy chỉnh nâng cao và ứng dụng mã nguồn mở.",
       "highlights": {
         "openSource": "Ứng dụng mã nguồn mở",
-        "usPresence": "Độ phủ máy chủ lớn tại Mỹ",
+        "usPresence": "Mạng máy chủ lớn tại Mỹ",
         "killSwitch": "Tùy chọn kill switch nâng cao"
       },
       "pros": {
@@ -210,17 +210,17 @@
         "longPlanValue": "Giá trị tốt ở gói dài hạn"
       },
       "cons": {
-        "polish": "Giao diện chưa thật sự bóng bẩy",
-        "overwhelming": "Có thể gây khó cho người dùng không chuyên kỹ thuật"
+        "polish": "Giao diện chưa thật sự mượt mà",
+        "overwhelming": "Có thể gây quá tải cho người dùng không chuyên kỹ thuật"
       },
       "specValues": {
         "serverNetwork": "91 quốc gia"
       },
       "faq": {
         "powerUserQuestion": "PIA có phù hợp cho người dùng chuyên sâu không?",
-        "powerUserAnswer": "Có, dịch vụ cung cấp nhiều tùy chỉnh chi tiết mà người dùng nâng cao thường đánh giá cao.",
+        "powerUserAnswer": "Có. Dịch vụ cung cấp các tùy chỉnh chi tiết mà người dùng nâng cao thường đánh giá cao.",
         "tradeoffQuestion": "Đánh đổi chính là gì?",
-        "tradeoffAnswer": "Bạn có được sự linh hoạt và mức giá tốt, nhưng giao diện không cao cấp bằng các đối thủ top đầu."
+        "tradeoffAnswer": "Bạn có được sự linh hoạt và chi phí tốt, nhưng giao diện không cao cấp bằng các đối thủ top đầu."
       }
     }
   },
